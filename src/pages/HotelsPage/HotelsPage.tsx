@@ -2,10 +2,11 @@ import React from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { mockHotelsListData } from 'context/db';
+import { mockHotelsListData, mockFavouriteHotelsListData } from 'context/db';
 
 import HotelTemplate from 'components/ui/HotelTemplate/HotelTemplate';
 import FindForm from 'components/layout/FindForm/FindForm';
+import SortControls from 'components/ui/SortControls/SortControls';
 
 import slider_1 from '../../assets/images/slider-image_1.jpg';
 import slider_2 from '../../assets/images/slider-image_2.jpg';
@@ -20,7 +21,7 @@ const HotelsPage: React.FC = () => {
     return (
         <div className="hotel-page">
             <div className="hotel-page__header">
-                <span className="hotel-page__title">Simple Hotel Check</span>
+                <h1 className="hotel-page__title">Simple Hotel Check</h1>
                 <button
                     className="hotel-page__button"
                     type="button"
@@ -141,7 +142,25 @@ const HotelsPage: React.FC = () => {
                     <div className="hotel-page__filter">
                         <FindForm />
                     </div>
-                    <div className="hotel-page__favourite"></div>
+                    <div className="hotel-page__favourite">
+                        <h2 className="hotel-page__title hotel-page__title_favourite">
+                            Избранное
+                        </h2>
+
+                        <SortControls additionalClass="hotel-page__sort-controls" />
+
+                        <ul className="hotels-list">
+                            {mockFavouriteHotelsListData.map(hotel => {
+                                return (
+                                    <HotelTemplate
+                                        key={hotel.id}
+                                        {...hotel}
+                                        additionalClass="hotels-list__template_favourite"
+                                    />
+                                );
+                            })}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

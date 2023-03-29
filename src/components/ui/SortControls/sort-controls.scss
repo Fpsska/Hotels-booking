@@ -1,0 +1,53 @@
+@import 'assets/styles/vars';
+
+// /. imports
+
+.sort-controls {
+
+    display: flex;
+
+    &__button {
+
+        display: flex;
+        align-items: center;
+
+        padding: 4px 8px;
+        background-color: transparent;
+        color: #99A0A3;
+        border: 1px solid $mercury-color;
+        border-radius: 4px;
+
+        svg {
+            fill: rgba(0, 0, 0, 0.32);
+
+            &:nth-child(2) {
+                transform: rotateX(180deg);
+            }
+        }
+
+        &:not(:last-child) {
+            margin-right: 8px;
+        }
+    }
+
+    &__button.active {
+        color: $woodland-color;
+        border-color: $woodland-color;
+
+        svg {
+            fill: $woodland-color;
+        }
+    }
+
+    &__text {
+        margin-right: 4px;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    span {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

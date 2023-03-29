@@ -6,7 +6,7 @@
 
 .hotel-page {
     height: 100%;
-    background-color: #E5E5E5;
+    background-color: $mercury-color;
 
     &__header {
         padding: 32px;
@@ -20,6 +20,10 @@
         font-size: 24px;
         font-weight: 500;
         color: $tundora-color;
+    }
+
+    &__title_favourite {
+        margin-bottom: 32px;
     }
 
     &__button {
@@ -43,9 +47,15 @@
 
     &__main {
         padding: 48px 32px;
+    }
+
+    &__main,
+    &__favourite,
+    &__filter {
+        background-color: $white-color;
+        padding: 32px;
         box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
         border-radius: 16px;
-        background-color: $white-color;
     }
 
     &__main-header {
@@ -57,6 +67,10 @@
 
     &__breadcrumb-nav {
         margin-right: 10px;
+    }
+
+    &__sort-controls {
+        margin-bottom: 32px;
     }
 
     &__date {
@@ -88,7 +102,13 @@
         justify-content: space-between;
         padding: 16px 16px 16px 0;
 
-        border-bottom: 1px solid #E5E5E5;
+        border-bottom: 1px solid $mercury-color;
+    }
+
+    &__template_favourite {
+        .hotels-list__image {
+            display: none;
+        }
     }
 
     &__image {
@@ -144,6 +164,7 @@
 
     &__date {
         color: $silver-color;
+        margin: 6px 0 10px 0;
 
         span {
             color: $gray-color;

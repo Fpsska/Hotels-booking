@@ -10,15 +10,20 @@ interface propTypes {
     duration: string;
     price: number;
     rating: number;
+    additionalClass?: string;
 }
 
 // /. interfaces
 
 const HotelTemplate: React.FC<propTypes> = props => {
-    const { name, date, duration, price, rating } = props;
+    const { name, date, duration, price, rating, additionalClass } = props;
 
     return (
-        <li className="hotels-list__template">
+        <li
+            className={`hotels-list__template ${
+                additionalClass ? additionalClass : ''
+            }`}
+        >
             <div className="hotels-list__image">
                 <img
                     src={hotelImg}
