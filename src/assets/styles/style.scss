@@ -1,0 +1,15 @@
+@import './reset';
+
+// /. imports
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: inherit;
+    color: $tundora-color;
+    background-color: #F4F4F4;
+}
