@@ -42,3 +42,17 @@ body {
 }
 
 // /. general-styles
+
+.breadcrumb-nav {
+    display: flex;
+
+    &__element {
+        font-size: 32px;
+        font-weight: 500;
+        color: $tundora-color;
+    }
+
+    &__element_separator {
+        margin: 0 20px;
+    }
+}

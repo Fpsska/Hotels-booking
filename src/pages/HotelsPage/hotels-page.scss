@@ -4,7 +4,7 @@
     height: 100%;
     background-color: #E5E5E5;
 
-    &__bar {
+    &__header {
         padding: 32px;
         background-color: transparent;
         display: flex;
@@ -30,6 +30,121 @@
 
         span {
             margin-right: 12px;
+        }
+    }
+
+    &__slider {
+        margin-bottom: 28px;
+    }
+
+    &__main {
+        padding: 48px 32px;
+        box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
+        border-radius: 16px;
+        background-color: $white-color;
+    }
+
+    &__main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 28px;
+    }
+
+    &__breadcrumb-nav {
+        margin-right: 10px;
+    }
+
+    &__date {
+        font-size: 24px;
+        font-weight: 400;
+        color: $woodland-color;
+    }
+
+    &__info {
+        font-size: 17px;
+        font-weight: 300;
+        color: $tundora-color;
+        margin-bottom: 12px;
+
+        span {
+            font-weight: 500;
+            color: $woodland-color;
+        }
+    }
+}
+
+.hotels-list {
+
+    background-color: $white-color;
+
+    &__template {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 16px 16px 0;
+
+        border-bottom: 1px solid #E5E5E5;
+    }
+
+    &__image {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: rgba(65, 82, 46, 0.05);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 24px;
+    }
+
+    &__info {
+        margin-right: 10px;
+    }
+
+    &__price {
+        color: $gray-color;
+    }
+
+    &__action {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    &__price-title {
+        margin-right: 10px;
+        font-size: 11px;
+        font-weight: 300;
+    }
+
+    &__button-amount {
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    &__button-add {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        margin-bottom: 22px;
+    }
+
+    &__name {
+        font-size: 17px;
+        font-weight: 300;
+        color: $tundora-color;
+    }
+
+    &__date {
+        color: $silver-color;
+
+        span {
+            color: $gray-color;
+            font-size: 14px;
+            font-weight: 400;
         }
     }
 }

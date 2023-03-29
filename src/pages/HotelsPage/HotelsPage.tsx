@@ -1,5 +1,9 @@
 import React from 'react';
 
+import { mockHotelsListData } from 'context/db';
+
+import HotelTemplate from 'components/ui/HotelTemplate/HotelTemplate';
+
 import './hotels-page.scss';
 
 // /. imports
@@ -7,7 +11,7 @@ import './hotels-page.scss';
 const HotelsPage: React.FC = () => {
     return (
         <div className="hotel-page">
-            <div className="hotel-page__bar">
+            <div className="hotel-page__header">
                 <span className="hotel-page__title">Simple Hotel Check</span>
                 <button
                     className="hotel-page__button"
@@ -46,7 +50,59 @@ const HotelsPage: React.FC = () => {
                 </button>
             </div>
             <div className="container">
-                <div className="hotel-page__content"></div>
+                <div className="hotel-page__content">
+                    <div className="hotel-page__main">
+                        <div className="hotel-page__main-header">
+                            <ul className="hotel-page__breadcrumb-nav breadcrumb-nav">
+                                <li className="breadcrumb-nav__element">
+                                    Отели
+                                </li>
+                                <li className="breadcrumb-nav__element breadcrumb-nav__element_separator">
+                                    <svg
+                                        width="11"
+                                        height="20"
+                                        viewBox="0 0 11 20"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M1 1.33334L9.66667 10L1 18.6667"
+                                            stroke="#A7A7A7"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        />
+                                    </svg>
+                                </li>
+                                <li className="breadcrumb-nav__element">
+                                    Москва
+                                </li>
+                            </ul>
+                            <span className="hotel-page__date">
+                                07 июля 2020
+                            </span>
+                        </div>
+
+                        <div className="hotel-page__slider">slider</div>
+
+                        <p className="hotel-page__info">
+                            Добавлено в Избранное: <span>3</span> отеля
+                        </p>
+
+                        <ul className="hotels-list">
+                            {mockHotelsListData.map(hotel => {
+                                return (
+                                    <HotelTemplate
+                                        key={hotel.id}
+                                        {...hotel}
+                                    />
+                                );
+                            })}
+                        </ul>
+                    </div>
+                    <div className="hotel-page__filter"></div>
+                    <div className="hotel-page__favourite"></div>
+                </div>
             </div>
         </div>
     );
