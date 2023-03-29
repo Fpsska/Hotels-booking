@@ -1,0 +1,24 @@
+.auth-page {
+    height: 100%;
+
+    background: linear-gradient(188deg, rgba(255, 255, 255, 1) 0%, rgba(225, 225, 225, 0.5970763305322129) 100%), url('../../assets/images/auth-background.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(10px);
+    }
+}
