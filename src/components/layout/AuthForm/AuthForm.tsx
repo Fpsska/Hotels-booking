@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Button from 'components/ui/Button/Button';
+
 import './auth-form.scss';
 
 const AuthForm: React.FC = () => {
@@ -25,12 +27,7 @@ const AuthForm: React.FC = () => {
                 </label>
             </div>
 
-            <button
-                className="auth-form__button"
-                type="submit"
-            >
-                Войти
-            </button>
+            <Button text="Войти" />
         </form>
     );
 };

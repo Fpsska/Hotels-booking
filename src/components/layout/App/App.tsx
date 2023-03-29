@@ -26,7 +26,7 @@ const App: React.FC = () => {
                         element={<AuthPage />}
                     />
                     <Route
-                        path="Users"
+                        path="hotels"
                         element={<HotelsPage />}
                     />
                     <Route

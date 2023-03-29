@@ -1,0 +1,35 @@
+@import 'assets/styles/vars';
+
+.hotel-page {
+    height: 100%;
+    background-color: #E5E5E5;
+
+    &__bar {
+        padding: 32px;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__title {
+        font-size: 24px;
+        font-weight: 500;
+        color: $tundora-color;
+    }
+
+    &__button {
+        color: $woodland-color;
+        font-size: 16px;
+        font-weight: 400;
+
+        display: flex;
+        align-items: center;
+        border: none;
+        background-color: transparent;
+
+        span {
+            margin-right: 12px;
+        }
+    }
+}

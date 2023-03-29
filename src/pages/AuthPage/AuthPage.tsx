@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AuthForm from 'components/ui/AuthForm/AuthForm';
+import AuthForm from 'components/layout/AuthForm/AuthForm';
 
 import './auth-page.scss';
 
