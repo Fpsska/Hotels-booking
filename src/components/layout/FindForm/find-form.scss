@@ -1,0 +1,39 @@
+@import 'assets/styles/vars';
+
+// /. imports
+
+.find-form {
+
+    padding: 32px;
+    background-color: $white-color;
+    box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
+    border-radius: 16px;
+
+    &__label {
+
+        display: flex;
+        flex-direction: column;
+
+        span {
+            font-size: 16px;
+            font-weight: 500;
+            color: $tundora-color;
+            margin-bottom: 7px;
+        }
+
+    }
+
+    &__input {
+        font-size: 16px;
+        font-weight: 300;
+        color: $tundora-color;
+        border: 1px solid $silver-sand-color;
+        padding: 15px;
+        margin-bottom: 16px;
+
+        &:last-child {
+            margin-bottom: 32px;
+        }
+    }
+
+}

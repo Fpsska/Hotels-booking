@@ -1,8 +1,16 @@
 import React from 'react';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 import { mockHotelsListData } from 'context/db';
 
 import HotelTemplate from 'components/ui/HotelTemplate/HotelTemplate';
+import FindForm from 'components/layout/FindForm/FindForm';
+
+import slider_1 from '../../assets/images/slider-image_1.jpg';
+import slider_2 from '../../assets/images/slider-image_2.jpg';
+import slider_3 from '../../assets/images/slider-image_3.jpg';
+import slider_4 from '../../assets/images/slider-image_4.jpg';
 
 import './hotels-page.scss';
 
@@ -83,7 +91,37 @@ const HotelsPage: React.FC = () => {
                             </span>
                         </div>
 
-                        <div className="hotel-page__slider">slider</div>
+                        <div className="hotel-page__slider">
+                            <Swiper
+                                slidesPerView={3.5}
+                                spaceBetween={15}
+                            >
+                                <SwiperSlide>
+                                    <img
+                                        src={slider_1}
+                                        alt="hotel image"
+                                    />
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <img
+                                        src={slider_2}
+                                        alt="hotel image"
+                                    />
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <img
+                                        src={slider_3}
+                                        alt="hotel image"
+                                    />
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <img
+                                        src={slider_4}
+                                        alt="hotel image"
+                                    />
+                                </SwiperSlide>
+                            </Swiper>
+                        </div>
 
                         <p className="hotel-page__info">
                             Добавлено в Избранное: <span>3</span> отеля
@@ -100,7 +138,9 @@ const HotelsPage: React.FC = () => {
                             })}
                         </ul>
                     </div>
-                    <div className="hotel-page__filter"></div>
+                    <div className="hotel-page__filter">
+                        <FindForm />
+                    </div>
                     <div className="hotel-page__favourite"></div>
                 </div>
             </div>

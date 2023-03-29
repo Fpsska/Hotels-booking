@@ -4,10 +4,17 @@ import './button.scss';
 
 // /. imports
 
-const Button: React.FC<{ text: string }> = ({ text }) => {
+interface propTypes {
+    text: string;
+    additionalClass?: string;
+}
+
+// /. interfaces
+
+const Button: React.FC<propTypes> = ({ text, additionalClass }) => {
     return (
         <button
-            className="button"
+            className={`button ${additionalClass ? additionalClass : ''}`}
             type="submit"
         >
             {text}

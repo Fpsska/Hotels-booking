@@ -6,7 +6,10 @@ import './auth-form.scss';
 
 const AuthForm: React.FC = () => {
     return (
-        <form className="auth-form">
+        <form
+            className="auth-form"
+            action="#"
+        >
             <legend className="auth-form__name">Simple Hotel Check</legend>
 
             <div className="auth-form__inputs">
