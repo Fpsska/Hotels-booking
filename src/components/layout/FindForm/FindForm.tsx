@@ -28,7 +28,7 @@ const FindForm: React.FC = () => {
                     placeholder="07.07.2020"
                 />
             </label>
-            <label className="find-form__label">
+            <label className="find-form__label find-form__label_duration">
                 <span>Количество дней</span>
                 <input
                     className="find-form__input"

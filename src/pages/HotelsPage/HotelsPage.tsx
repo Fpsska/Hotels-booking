@@ -128,7 +128,7 @@ const HotelsPage: React.FC = () => {
                             Добавлено в Избранное: <span>3</span> отеля
                         </p>
 
-                        <ul className="hotels-list">
+                        <ul className="hotels-list hotels-list_main">
                             {mockHotelsListData.map(hotel => {
                                 return (
                                     <HotelTemplate
@@ -149,7 +149,7 @@ const HotelsPage: React.FC = () => {
 
                         <SortControls additionalClass="hotel-page__sort-controls" />
 
-                        <ul className="hotels-list">
+                        <ul className="hotels-list hotels-list_favourite">
                             {mockFavouriteHotelsListData.map(hotel => {
                                 return (
                                     <HotelTemplate

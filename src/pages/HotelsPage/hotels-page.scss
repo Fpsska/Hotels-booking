@@ -6,7 +6,7 @@
 
 .hotel-page {
     height: 100%;
-    background-color: $mercury-color;
+    background-color: $mercury-gray-color;
 
     &__header {
         padding: 32px;
@@ -45,8 +45,25 @@
         margin-bottom: 28px;
     }
 
+    &__content {
+        display: grid;
+        grid-gap: 24px;
+        grid-template-columns: minmax(auto, 360px) minmax(auto, 665px);
+        grid-template-areas: 'filter main'
+            'favourite main';
+    }
+
     &__main {
         padding: 48px 32px;
+        grid-area: main;
+    }
+
+    &__favourite {
+        grid-area: favourite;
+    }
+
+    &__filter {
+        grid-area: filter;
     }
 
     &__main,
@@ -102,10 +119,12 @@
         justify-content: space-between;
         padding: 16px 16px 16px 0;
 
-        border-bottom: 1px solid $mercury-color;
+        border-bottom: 1px solid $mercury-gray-color;
     }
 
     &__template_favourite {
+        padding: 16px 0;
+
         .hotels-list__image {
             display: none;
         }
@@ -125,7 +144,7 @@
     }
 
     &__info {
-        margin-right: 10px;
+        margin-right: 5px;
     }
 
     &__price {
@@ -139,9 +158,14 @@
     }
 
     &__price-title {
-        margin-right: 10px;
         font-size: 11px;
         font-weight: 300;
+        margin-right: 10px;
+    }
+
+    &__price-amount {
+        font-size: 17px;
+        font-weight: 400;
     }
 
     &__button-amount {
@@ -171,6 +195,59 @@
             font-size: 14px;
             font-weight: 400;
         }
+    }
+}
+
+.hotels-list_main {
+    overflow-y: scroll;
+    max-height: 530px;
+    padding-right: 12px;
+
+    /* Firefox */
+    * {
+        scrollbar-width: auto;
+        scrollbar-color: $woodland-color $mercury-color;
+    }
+
+    /* Chrome, Edge, and Safari */
+    &::-webkit-scrollbar {
+        width: 2px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $mercury-color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $woodland-color;
+        border-radius: 2px;
+        border: none;
+    }
+}
+
+.hotels-list_favourite {
+    overflow-y: scroll;
+    max-height: 290px;
+
+    /* Firefox */
+    * {
+        scrollbar-width: 0;
+        scrollbar-color: transparent;
+    }
+
+    /* Chrome, Edge, and Safari */
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        border-radius: none;
+        border: none;
     }
 }
 
