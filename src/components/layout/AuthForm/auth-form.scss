@@ -45,6 +45,20 @@
         }
     }
 
+    &__label.invalid {
+
+        span {
+            color: $red-color;
+        }
+
+        .auth-form__input {
+            &::placeholder {
+                color: $red-color;
+            }
+        }
+
+    }
+
     &__input {
         padding: 15px;
         background-color: transparent;
