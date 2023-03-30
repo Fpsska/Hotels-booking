@@ -116,7 +116,6 @@
     &__template {
         display: flex;
         align-items: center;
-        justify-content: space-between;
         padding: 16px 16px 16px 0;
 
         border-bottom: 1px solid $mercury-gray-color;
@@ -144,17 +143,34 @@
     }
 
     &__info {
-        margin-right: 5px;
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
     }
 
     &__price {
         color: $gray-color;
     }
 
-    &__action {
+    &__header {
         display: flex;
-        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 5px;
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
         align-items: flex-end;
+    }
+
+    &__descr {
+        margin-right: 5px;
+    }
+
+    &__rating {
+        margin-right: 5px;
     }
 
     &__price-title {
@@ -177,18 +193,17 @@
         background-color: transparent;
         border: none;
         padding: 0;
-        margin-bottom: 22px;
     }
 
     &__name {
         font-size: 17px;
         font-weight: 300;
         color: $tundora-color;
+        margin-bottom: 4px;
     }
 
     &__date {
         color: $silver-color;
-        margin: 6px 0 10px 0;
 
         span {
             color: $gray-color;
