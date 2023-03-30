@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { useAppSelector, useAppDispatch } from 'app/hooks';
+
+import { switchUserAuthStatus } from 'app/slices/authSlice';
 
 import { mockHotelsListData, mockFavouriteHotelsListData } from 'context/db';
 
@@ -18,6 +25,8 @@ import './hotels-page.scss';
 // /. imports
 
 const HotelsPage: React.FC = () => {
+    const { isUserAuthorized } = useAppSelector(state => state.authSlice);
+
     const [breakpoints] = useState<{
         [key: number]: { [key: string]: string | number };
     }>({
@@ -47,15 +56,27 @@ const HotelsPage: React.FC = () => {
         }
     });
 
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+
     // /. hooks
 
-    return (
+    const onButtonLogOutClick = (): void => {
+        dispatch(switchUserAuthStatus(false));
+        navigate('/LIIS-Task');
+    };
+
+    // /. functions
+
+    return isUserAuthorized ? (
         <div className="hotel-page">
             <div className="hotel-page__header">
                 <h1 className="hotel-page__title">Simple Hotel Check</h1>
                 <button
                     className="hotel-page__button"
                     type="button"
+                    aria-label="log out"
+                    onClick={onButtonLogOutClick}
                 >
                     <span>Выйти</span>
                     <svg
@@ -192,6 +213,11 @@ const HotelsPage: React.FC = () => {
                 </div>
             </div>
         </div>
+    ) : (
+        <Navigate
+            to="/LIIS-Task"
+            replace={true}
+        />
     );
 };
 

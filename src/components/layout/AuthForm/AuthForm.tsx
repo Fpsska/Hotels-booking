@@ -1,5 +1,11 @@
 import React from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
+import { useAppDispatch } from 'app/hooks';
+
+import { switchUserAuthStatus } from 'app/slices/authSlice';
+
 import Button from 'components/ui/Button/Button';
 
 import { useInput } from 'utils/hooks/useInput';
@@ -23,11 +29,18 @@ const AuthForm: React.FC = () => {
         !password.isMinLengthErr &&
         !password.isCyrillicErr;
 
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+
     // /. hooks
 
     const onAuthFormSubmit = (e: React.FormEvent): void => {
         e.preventDefault();
         //
+        if (isEmailValid && isPasswordValid) {
+            dispatch(switchUserAuthStatus(true));
+            navigate('/LIIS-Task/hotels');
+        }
     };
 
     // /. functions
