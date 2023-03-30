@@ -8,6 +8,7 @@ import NoFoundPage from 'pages/NoFoundPage/NoFoundPage';
 
 import Layout from '../Layout';
 
+import 'assets/styles/_media.scss';
 import 'assets/styles/style.scss';
 import './App.css';
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -18,6 +18,37 @@ import './hotels-page.scss';
 // /. imports
 
 const HotelsPage: React.FC = () => {
+    const [breakpoints] = useState<{
+        [key: number]: { [key: string]: string | number };
+    }>({
+        320: {
+            slidesPerView: 1,
+            spaceBetween: 15
+        },
+        360: {
+            slidesPerView: 1.5,
+            spaceBetween: 15
+        },
+        600: {
+            slidesPerView: 2.2,
+            spaceBetween: 15
+        },
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 15
+        },
+        1024: {
+            slidesPerView: 3.5,
+            spaceBetween: 15
+        },
+        1440: {
+            slidesPerView: 3.5,
+            spaceBetween: 15
+        }
+    });
+
+    // /. hooks
+
     return (
         <div className="hotel-page">
             <div className="hotel-page__header">
@@ -93,10 +124,7 @@ const HotelsPage: React.FC = () => {
                         </div>
 
                         <div className="hotel-page__slider">
-                            <Swiper
-                                slidesPerView={3.5}
-                                spaceBetween={15}
-                            >
+                            <Swiper breakpoints={breakpoints}>
                                 <SwiperSlide>
                                     <img
                                         src={slider_1}

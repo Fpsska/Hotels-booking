@@ -1,0 +1,81 @@
+@media screen and (max-width: 1024px) {
+    .hotel-page__content {
+        grid-template-columns: minmax(auto, 100%);
+        grid-template-areas: 'filter'
+            'main'
+            'favourite';
+    }
+
+    .hotel-page__main {
+        padding: 52px 24px;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .hotel-page__main {
+        padding: 52px 10px;
+    }
+
+    .hotel-page__slider,
+    .hotel-page__info {
+        padding: 0 10px;
+    }
+
+    .hotels-list__info {
+        width: 100%;
+    }
+
+    .hotel-page__info {
+        text-align: center;
+    }
+
+    .hotels-list_main {
+        padding: 0;
+    }
+
+    .hotel-page__favourite,
+    .hotel-page__filter {
+        padding: 24px;
+    }
+}
+
+
+@media screen and (max-width: 475px) {
+    .hotel-page__main {
+        padding: 52px 0;
+    }
+
+    .hotel-page__header {
+        flex-direction: column;
+    }
+
+    .hotel-page__slider img {
+        height: 180px;
+    }
+
+    .hotels-list__template {
+        padding: 16px;
+        flex-direction: column;
+    }
+
+    .hotels-list__image {
+        margin: 0 0 20px 0;
+    }
+
+    .hotel-page__breadcrumb-nav {
+        margin: 0 0 10px 0;
+
+        .breadcrumb-nav__element {
+            font-size: 26px;
+        }
+
+        .breadcrumb-nav__element_separator {
+            margin: 0 10px;
+        }
+    }
+
+    .hotel-page__main-header {
+        flex-direction: column;
+    }
+}
