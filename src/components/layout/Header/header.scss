@@ -1,0 +1,33 @@
+@import 'assets/styles/vars';
+
+// /. imports
+
+.header {
+    background-color: $mercury-gray-color;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__title {
+        font-size: 24px;
+        font-weight: 500;
+        color: $tundora-color;
+    }
+
+    &__button {
+        cursor: pointer;
+        color: $woodland-color;
+        font-size: 16px;
+        font-weight: 400;
+
+        display: flex;
+        align-items: center;
+        border: none;
+        background-color: transparent;
+
+        span {
+            margin-right: 12px;
+        }
+    }
+}

@@ -2,12 +2,20 @@ import React from 'react';
 
 import { Outlet } from 'react-router';
 
+import { useAppSelector } from 'app/hooks';
+
+import Header from './Header/Header';
+
 // /. imports
 
 const Layout: React.FC = () => {
+    const { isUserAuthorized } = useAppSelector(state => state.authSlice);
+
+    // /. hooks
+
     return (
         <div className="page">
-            <header className="header"></header>
+            <>{isUserAuthorized && <Header />}</>
             <main className="main">
                 <Outlet />
             </main>
