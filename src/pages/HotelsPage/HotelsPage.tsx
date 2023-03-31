@@ -64,6 +64,15 @@ const HotelsPage: React.FC = () => {
     const onButtonLogOutClick = (): void => {
         dispatch(switchUserAuthStatus(false));
         navigate('/LIIS-Task');
+
+        localStorage.setItem('isUserAuthStatus', JSON.stringify(false));
+        localStorage.setItem(
+            'userData',
+            JSON.stringify({
+                email: '',
+                password: ''
+            })
+        );
     };
 
     // /. functions
