@@ -12,8 +12,20 @@ export function useInput(initialValue: string, validations: any): any {
 
     // /. hooks
 
-    const onInputChange = (e: any): void => {
-        setValue(e.target.value.trim());
+    const onInputChange = (e: any, role?: string): void => {
+        switch (role) {
+            case 'location':
+                setValue(e.target.value.replace(/[^a-zA-Zа-яА-Я\s]/g, ''));
+                break;
+            case 'date':
+                setValue(e.target.value.trim());
+                break;
+            case 'days':
+                setValue(e.target.value.replace(/[^0-9]/g, '').trim());
+                break;
+            default:
+                setValue(e.target.value.trim());
+        }
     };
 
     const onInputBlur = (): void => {

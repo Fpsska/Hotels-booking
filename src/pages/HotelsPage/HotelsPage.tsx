@@ -11,6 +11,8 @@ import { switchUserAuthStatus } from 'app/slices/authSlice';
 
 import { mockHotelsListData, mockFavouriteHotelsListData } from 'context/db';
 
+import { getCurrentDate } from 'utils/helpers/getCurrentDate';
+
 import HotelTemplate from 'components/ui/HotelTemplate/HotelTemplate';
 import FindForm from 'components/layout/FindForm/FindForm';
 import SortControls from 'components/ui/SortControls/SortControls';
@@ -149,7 +151,7 @@ const HotelsPage: React.FC = () => {
                                 </li>
                             </ul>
                             <span className="hotel-page__date">
-                                07 июля 2020
+                                {getCurrentDate('combined')}
                             </span>
                         </div>
 
