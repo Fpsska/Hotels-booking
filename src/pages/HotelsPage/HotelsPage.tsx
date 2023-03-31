@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import { Navigate } from 'react-router';
@@ -8,6 +8,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 
 import { switchUserAuthStatus } from 'app/slices/authSlice';
+import {
+    triggerHotelsDataFetch,
+    setHotelsDataError
+} from 'app/slices/hotelSlice';
+
+import { fetchHotelsData } from 'app/api/fetchHotelsData';
 
 import { mockHotelsListData, mockFavouriteHotelsListData } from 'context/db';
 
@@ -28,7 +34,7 @@ import './hotels-page.scss';
 
 const HotelsPage: React.FC = () => {
     const { isUserAuthorized } = useAppSelector(state => state.authSlice);
-    const { currentLocation, arrivalDate } = useAppSelector(
+    const { hotelsData, currentLocation, arrivalDate } = useAppSelector(
         state => state.hotelSlice
     );
 
@@ -81,6 +87,24 @@ const HotelsPage: React.FC = () => {
     };
 
     // /. functions
+
+    useEffect(() => {
+        const args: any = {
+            location: currentLocation,
+            lang: 'ru',
+            limit: 2
+        };
+
+        fetchHotelsData(args)
+            .then(() => console.log('start fetching'))
+            .then(() => dispatch(triggerHotelsDataFetch()))
+            .catch(({ message }) => {
+                console.error('Error of fetchHotelsData promise:', message);
+                dispatch(setHotelsDataError(message));
+            });
+    }, [currentLocation]);
+
+    // /. effects
 
     return isUserAuthorized ? (
         <div className="hotel-page">
@@ -192,10 +216,15 @@ const HotelsPage: React.FC = () => {
                         </p>
 
                         <ul className="hotels-list hotels-list_main">
-                            {mockHotelsListData.map(hotel => {
+                            {hotelsData?.map((hotel: any) => {
                                 return (
                                     <HotelTemplate
                                         key={hotel.id}
+                                        name={hotel.fullName}
+                                        date="7 июля 2020"
+                                        duration="1 день"
+                                        price={hotel._score}
+                                        rating={hotel._score}
                                         {...hotel}
                                     />
                                 );
