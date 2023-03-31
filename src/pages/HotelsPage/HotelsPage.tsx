@@ -28,6 +28,9 @@ import './hotels-page.scss';
 
 const HotelsPage: React.FC = () => {
     const { isUserAuthorized } = useAppSelector(state => state.authSlice);
+    const { currentLocation, arrivalDate } = useAppSelector(
+        state => state.hotelSlice
+    );
 
     const [breakpoints] = useState<{
         [key: number]: { [key: string]: string | number };
@@ -147,11 +150,11 @@ const HotelsPage: React.FC = () => {
                                     </svg>
                                 </li>
                                 <li className="breadcrumb-nav__element">
-                                    Москва
+                                    {currentLocation}
                                 </li>
                             </ul>
                             <span className="hotel-page__date">
-                                {getCurrentDate('combined')}
+                                {getCurrentDate(arrivalDate, 'combined')}
                             </span>
                         </div>
 

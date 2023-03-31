@@ -14,7 +14,7 @@ interface IhotelSlice {
 
 const initialState: IhotelSlice = {
     currentLocation: 'Москва',
-    arrivalDate: getCurrentDate('numeric'),
+    arrivalDate: getCurrentDate(new Date()), // 2023-03-31
     daysCount: '1'
 };
 
