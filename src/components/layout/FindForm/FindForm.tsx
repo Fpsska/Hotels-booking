@@ -24,7 +24,7 @@ const FindForm: React.FC = () => {
     const dispatch = useAppDispatch();
 
     const locationInput = useInput('', {});
-    const dateInput = useInput('', {});
+    const dateInput = useInput(arrivalDate, {});
     const daysInput = useInput('', {});
 
     // /. hooks
@@ -59,8 +59,7 @@ const FindForm: React.FC = () => {
                 <span>Дата заселения</span>
                 <input
                     className="find-form__input"
-                    type="text"
-                    placeholder={arrivalDate}
+                    type="date"
                     value={dateInput.value}
                     onChange={e => dateInput.onInputChange(e, 'date')}
                 />
