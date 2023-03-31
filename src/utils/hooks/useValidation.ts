@@ -10,10 +10,10 @@ interface propTypes {
 // /. interfaces
 
 export function useValiadtion({ value, validations }: propTypes): any {
-    const [isEmptyErr, setEmptyErr] = useState<boolean>(false);
+    const [isEmptyErr, setEmptyErr] = useState<boolean>(true);
     const [isMinLengthErr, setMinLengthErr] = useState<boolean>(false);
     const [isCyrillicErr, setCyrillicErr] = useState<boolean>(false);
-    const [isValidEmail, setValidEmail] = useState<boolean>(false);
+    const [isEmailValidErr, setEmailValidErr] = useState<boolean>(false);
 
     // /. hooks
 
@@ -37,16 +37,16 @@ export function useValiadtion({ value, validations }: propTypes): any {
                 }
                 case 'isEmailPatternValidation': {
                     const emailPattern = new RegExp(/^.+@\w+(\.\w+)+$/gi);
-                    emailPattern.test(value)
-                        ? setValidEmail(true)
-                        : setValidEmail(false);
+                    !emailPattern.test(value)
+                        ? setEmailValidErr(true)
+                        : setEmailValidErr(false);
                     break;
                 }
                 default:
                     return;
             }
         }
-    }, [value]);
+    }, [value, validations]);
 
     // /. effects
 
@@ -54,6 +54,6 @@ export function useValiadtion({ value, validations }: propTypes): any {
         isEmptyErr,
         isMinLengthErr,
         isCyrillicErr,
-        isValidEmail
+        isEmailValidErr
     };
 }

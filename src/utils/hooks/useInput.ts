@@ -25,8 +25,8 @@ export function useInput(initialValue: string, validations: any): any {
     return {
         value,
         isInputActive,
-        ...validationObj,
         onInputChange,
-        onInputBlur
+        onInputBlur,
+        ...validationObj
     };
 }

@@ -18,16 +18,12 @@ const AuthForm: React.FC = () => {
         isEmailPatternValidation: true
     });
     const password = useInput('', {
-        isEmpty: true,
         minLength: 8,
         isCyrillicAllowed: true
     });
 
-    const isEmailValid = !email.isEmpty && email.isValidEmail;
-    const isPasswordValid =
-        !password.isEmptyErr &&
-        !password.isMinLengthErr &&
-        !password.isCyrillicErr;
+    const isEmailValid = !email.isEmptyErr && !email.isEmailValidErr;
+    const isPasswordValid = !password.isMinLengthErr && !password.isCyrillicErr;
 
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
@@ -78,14 +74,14 @@ const AuthForm: React.FC = () => {
                         onBlur={email.onInputBlur}
                     />
                     <>
-                        {email.isInputActive && email.isEmpty && (
+                        {email.isInputActive && email.isEmptyErr && (
                             <p className="error-message">
                                 Поле не может быть пустым
                             </p>
                         )}
                     </>
                     <>
-                        {email.isInputActive && email.isEmailValid && (
+                        {email.isInputActive && email.isEmailValidErr && (
                             <p className="error-message">
                                 Неккоректный email-адрес
                             </p>
