@@ -34,9 +34,8 @@ import './hotels-page.scss';
 
 const HotelsPage: React.FC = () => {
     const { isUserAuthorized } = useAppSelector(state => state.authSlice);
-    const { hotelsData, currentLocation, arrivalDate } = useAppSelector(
-        state => state.hotelSlice
-    );
+    const { hotelsData, hotelsDataFetchError, currentLocation, arrivalDate } =
+        useAppSelector(state => state.hotelSlice);
 
     const [breakpoints] = useState<{
         [key: number]: { [key: string]: string | number };
@@ -215,21 +214,33 @@ const HotelsPage: React.FC = () => {
                             Добавлено в Избранное: <span>3</span> отеля
                         </p>
 
-                        <ul className="hotels-list hotels-list_main">
-                            {hotelsData?.map((hotel: any) => {
-                                return (
-                                    <HotelTemplate
-                                        key={hotel.id}
-                                        name={hotel.fullName}
-                                        date="7 июля 2020"
-                                        duration="1 день"
-                                        price={hotel._score}
-                                        rating={hotel._score}
-                                        {...hotel}
-                                    />
-                                );
-                            })}
-                        </ul>
+                        <>
+                            {hotelsDataFetchError ? (
+                                <h3 className="data-message">
+                                    Something went wrong: {hotelsDataFetchError}
+                                </h3>
+                            ) : hotelsData.length <= 0 ? (
+                                <h3 className="data-message">
+                                    Loading data...
+                                </h3>
+                            ) : (
+                                <ul className="hotels-list hotels-list_main">
+                                    {hotelsData?.map((hotel: any) => {
+                                        return (
+                                            <HotelTemplate
+                                                key={hotel.id}
+                                                name={hotel.fullName}
+                                                date="7 июля 2020"
+                                                duration="1 день"
+                                                price={hotel._score}
+                                                rating={hotel._score}
+                                                {...hotel}
+                                            />
+                                        );
+                                    })}
+                                </ul>
+                            )}
+                        </>
                     </div>
                     <div className="hotel-page__filter">
                         <FindForm />

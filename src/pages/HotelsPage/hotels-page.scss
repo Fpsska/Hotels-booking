@@ -57,6 +57,8 @@
     &__main {
         padding: 48px 32px;
         grid-area: main;
+        display: flex;
+        flex-direction: column;
     }
 
     &__favourite {
