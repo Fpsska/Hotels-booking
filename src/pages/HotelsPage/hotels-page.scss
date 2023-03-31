@@ -63,6 +63,8 @@
 
     &__favourite {
         grid-area: favourite;
+        display: flex;
+        flex-direction: column;
     }
 
     &__filter {
@@ -197,6 +199,19 @@
         background-color: transparent;
         border: none;
         padding: 0;
+        cursor: pointer;
+
+        svg {
+            stroke: $silver-color;
+            fill: transparent;
+        }
+    }
+
+    &__button-add.active {
+        svg {
+            stroke: $red-color;
+            fill: $red-color;
+        }
     }
 
     &__name {

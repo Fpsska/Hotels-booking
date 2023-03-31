@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, current, PayloadAction } from '@reduxjs/toolkit';
 
 import { getCurrentDate } from 'utils/helpers/getCurrentDate';
 
@@ -9,6 +9,7 @@ interface IhotelSlice {
     arrivalDate: string;
     daysCount: string;
     hotelsData: any[];
+    favouriteHotelsData: any[];
     hotelsDataFetchError: null | string;
 }
 
@@ -19,6 +20,7 @@ const initialState: IhotelSlice = {
     arrivalDate: getCurrentDate(new Date()), // 2023-03-31
     daysCount: '1',
     hotelsData: [],
+    favouriteHotelsData: [],
     hotelsDataFetchError: null
 };
 
@@ -54,6 +56,26 @@ const hotelSlice = createSlice({
             state.hotelsData = extendedHotelsData;
             console.log(state.hotelsData);
         },
+        switchHotelFavouriteStatus(
+            state,
+            action: PayloadAction<{ payloadID: number; status: boolean }>
+        ) {
+            const { payloadID, status } = action.payload;
+            // /. payload
+
+            const targetHotel = state.hotelsData.find(
+                item => item.id === payloadID
+            );
+
+            if (targetHotel) {
+                targetHotel.isFavourite = status;
+            }
+        },
+        setFavouriteHotelsData(state) {
+            state.favouriteHotelsData = state.hotelsData.filter(
+                hotel => hotel.isFavourite
+            );
+        },
         setHotelsDataError(state, action: PayloadAction<null | string>) {
             state.hotelsDataFetchError = action.payload;
         }
@@ -66,7 +88,9 @@ export const {
     setDaysCount,
     triggerHotelsDataFetch,
     setHotelsData,
-    setHotelsDataError
+    setHotelsDataError,
+    switchHotelFavouriteStatus,
+    setFavouriteHotelsData
 } = hotelSlice.actions;
 
 export default hotelSlice.reducer;

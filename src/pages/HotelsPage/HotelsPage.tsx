@@ -10,12 +10,11 @@ import { useAppSelector, useAppDispatch } from 'app/hooks';
 import { switchUserAuthStatus } from 'app/slices/authSlice';
 import {
     triggerHotelsDataFetch,
-    setHotelsDataError
+    setHotelsDataError,
+    setFavouriteHotelsData
 } from 'app/slices/hotelSlice';
 
 import { fetchHotelsData } from 'app/api/fetchHotelsData';
-
-import { mockHotelsListData, mockFavouriteHotelsListData } from 'context/db';
 
 import { getCurrentDate } from 'utils/helpers/getCurrentDate';
 
@@ -34,8 +33,13 @@ import './hotels-page.scss';
 
 const HotelsPage: React.FC = () => {
     const { isUserAuthorized } = useAppSelector(state => state.authSlice);
-    const { hotelsData, hotelsDataFetchError, currentLocation, arrivalDate } =
-        useAppSelector(state => state.hotelSlice);
+    const {
+        hotelsData,
+        favouriteHotelsData,
+        hotelsDataFetchError,
+        currentLocation,
+        arrivalDate
+    } = useAppSelector(state => state.hotelSlice);
 
     const [breakpoints] = useState<{
         [key: number]: { [key: string]: string | number };
@@ -88,6 +92,7 @@ const HotelsPage: React.FC = () => {
     // /. functions
 
     useEffect(() => {
+        // logic of handling fetchHotelsData Promise
         const args: any = {
             location: currentLocation,
             lang: 'ru',
@@ -102,6 +107,11 @@ const HotelsPage: React.FC = () => {
                 dispatch(setHotelsDataError(message));
             });
     }, [currentLocation]);
+
+    useEffect(() => {
+        // update favouriteHotelsData[]
+        dispatch(setFavouriteHotelsData());
+    }, [hotelsData]);
 
     // /. effects
 
@@ -211,7 +221,8 @@ const HotelsPage: React.FC = () => {
                         </div>
 
                         <p className="hotel-page__info">
-                            Добавлено в Избранное: <span>3</span> отеля
+                            Добавлено в Избранное:{' '}
+                            <span>{favouriteHotelsData.length}</span> отеля
                         </p>
 
                         <>
@@ -252,17 +263,30 @@ const HotelsPage: React.FC = () => {
 
                         <SortControls additionalClass="hotel-page__sort-controls" />
 
-                        <ul className="hotels-list hotels-list_favourite">
-                            {mockFavouriteHotelsListData.map(hotel => {
-                                return (
-                                    <HotelTemplate
-                                        key={hotel.id}
-                                        {...hotel}
-                                        additionalClass="hotels-list__template_favourite"
-                                    />
-                                );
-                            })}
-                        </ul>
+                        <>
+                            {favouriteHotelsData.length <= 0 ? (
+                                <h3 className="data-message">
+                                    Favourite data is empty
+                                </h3>
+                            ) : (
+                                <ul className="hotels-list hotels-list_favourite">
+                                    {favouriteHotelsData?.map(hotel => {
+                                        return (
+                                            <HotelTemplate
+                                                key={hotel.id}
+                                                name={hotel.fullName}
+                                                date="7 июля 2020"
+                                                duration="1 день"
+                                                price={hotel._score}
+                                                rating={hotel._score}
+                                                {...hotel}
+                                                additionalClass="hotels-list__template_favourite"
+                                            />
+                                        );
+                                    })}
+                                </ul>
+                            )}
+                        </>
                     </div>
                 </div>
             </div>
