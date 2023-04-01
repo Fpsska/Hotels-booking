@@ -125,7 +125,7 @@ const MainSection: React.FC = () => {
                     <h3 className="data-message">
                         Something went wrong: {hotelsDataFetchError}
                     </h3>
-                ) : hotelsData.length <= 0 ? (
+                ) : hotelsData.length === 0 ? (
                     <h3 className="data-message">Loading data...</h3>
                 ) : (
                     <ul className="hotels-list hotels-list_main">

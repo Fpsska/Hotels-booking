@@ -6,11 +6,11 @@ import { useAppDispatch } from 'app/hooks';
 
 import { switchUserAuthStatus } from 'app/slices/authSlice';
 
-import './header.scss';
+import './navigation.scss';
 
 // /. imports
 
-const Header: React.FC = () => {
+const Navigation: React.FC = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
@@ -33,10 +33,10 @@ const Header: React.FC = () => {
     // /. functions
 
     return (
-        <header className="header">
-            <h1 className="header__title">Simple Hotel Check</h1>
+        <div className="navigation">
+            <h1 className="navigation__title">Simple Hotel Check</h1>
             <button
-                className="header__button"
+                className="navigation__button"
                 type="button"
                 aria-label="log out"
                 onClick={onButtonLogOutClick}
@@ -72,8 +72,8 @@ const Header: React.FC = () => {
                     />
                 </svg>
             </button>
-        </header>
+        </div>
     );
 };
 
-export default Header;
+export default Navigation;

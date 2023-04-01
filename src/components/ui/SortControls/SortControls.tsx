@@ -4,9 +4,14 @@ import './sort-controls.scss';
 
 // /. imports
 
-const SortControls: React.FC<{ additionalClass: string }> = ({
-    additionalClass
-}) => {
+interface propTypes {
+    additionalClass?: string;
+    isDisabled: boolean;
+}
+
+// /. interfaces
+
+const SortControls: React.FC<propTypes> = ({ additionalClass, isDisabled }) => {
     return (
         <div
             className={`sort-controls ${
@@ -16,6 +21,7 @@ const SortControls: React.FC<{ additionalClass: string }> = ({
             <button
                 className="sort-controls__button active"
                 aria-label="sort by rating"
+                disabled={isDisabled}
             >
                 <span className="sort-controls__text">Рейтинг</span>
                 <span>
@@ -48,6 +54,7 @@ const SortControls: React.FC<{ additionalClass: string }> = ({
             <button
                 className="sort-controls__button"
                 aria-label="sort by price"
+                disabled={isDisabled}
             >
                 <span className="sort-controls__text">Цена</span>
                 <span>

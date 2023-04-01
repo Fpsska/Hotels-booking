@@ -11,6 +11,7 @@ import {
 
 import { fetchHotelsData } from 'app/api/fetchHotelsData';
 
+import Navigation from 'components/layout/Navigation/Navigation';
 import MainSection from 'components/layout/MainSection/MainSection';
 import FindForm from 'components/layout/FindForm/FindForm';
 import FavouriteSection from 'components/layout/FavouriteSection/FavouriteSection';
@@ -48,8 +49,9 @@ const HotelsPage: React.FC = () => {
 
     return isUserAuthorized ? (
         <div className="hotel-page">
+            <Navigation />
             <div className="container">
-                <div className="hotel-page__content">
+                <section className="hotel-page__content">
                     <MainSection />
 
                     <div className="hotel-page__filter">
@@ -57,7 +59,7 @@ const HotelsPage: React.FC = () => {
                     </div>
 
                     <FavouriteSection />
-                </div>
+                </section>
             </div>
         </div>
     ) : (

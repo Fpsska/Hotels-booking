@@ -8,6 +8,8 @@
 
     &__button {
 
+        opacity: 1;
+        cursor: pointer;
         display: flex;
         align-items: center;
 
@@ -27,6 +29,11 @@
 
         &:not(:last-child) {
             margin-right: 8px;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
     }
 

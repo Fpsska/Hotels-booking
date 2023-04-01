@@ -17,9 +17,9 @@ import './find-form.scss';
 // /. imports
 
 const FindForm: React.FC = () => {
-    const { currentLocation, arrivalDate, daysCount } = useAppSelector(
-        state => state.hotelSlice
-    );
+    const { isUserAuthorized } = useAppSelector(state => state.authSlice);
+    const { currentLocation, arrivalDate, daysCount, hotelsDataFetchError } =
+        useAppSelector(state => state.hotelSlice);
 
     const dispatch = useAppDispatch();
 
@@ -32,9 +32,14 @@ const FindForm: React.FC = () => {
     const onFindFormSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
         //
-        dispatch(setCurrentLocation(locationInput.value || currentLocation));
-        dispatch(setArrivalDate(dateInput.value || arrivalDate));
-        dispatch(setDaysCount(daysInput.value || daysCount));
+        if (isUserAuthorized) {
+            console.log('!!');
+            dispatch(
+                setCurrentLocation(locationInput.value || currentLocation)
+            );
+            dispatch(setArrivalDate(dateInput.value || arrivalDate));
+            dispatch(setDaysCount(daysInput.value || daysCount));
+        }
     };
 
     // /. functions
@@ -77,6 +82,7 @@ const FindForm: React.FC = () => {
             <Button
                 text="Найти"
                 additionalClass="button_find"
+                isDisabled={!isUserAuthorized}
             />
         </form>
     );
