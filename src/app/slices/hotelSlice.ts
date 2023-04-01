@@ -10,6 +10,7 @@ interface IhotelSlice {
     daysCount: string;
     hotelsData: any[];
     favouriteHotelsData: any[];
+    isHotelsDataLoading: boolean;
     hotelsDataFetchError: null | string;
 }
 
@@ -21,6 +22,7 @@ const initialState: IhotelSlice = {
     daysCount: '1',
     hotelsData: [],
     favouriteHotelsData: [],
+    isHotelsDataLoading: true,
     hotelsDataFetchError: null
 };
 
@@ -41,6 +43,9 @@ const hotelSlice = createSlice({
         },
         triggerHotelsDataFetch() {
             return;
+        },
+        switchHotelsDataLoading(state, action: PayloadAction<boolean>) {
+            state.isHotelsDataLoading = action.payload;
         },
         setHotelsDataError(state, action: PayloadAction<null | string>) {
             state.hotelsDataFetchError = action.payload;
@@ -134,6 +139,7 @@ export const {
     setDaysCount,
     triggerHotelsDataFetch,
     setHotelsData,
+    switchHotelsDataLoading,
     setHotelsDataError,
     switchHotelFavouriteStatus,
     setFavouriteHotelsData,

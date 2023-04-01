@@ -183,6 +183,14 @@
         svg {
             stroke: $silver-color;
             fill: transparent;
+            transition: all .25s ease-in-out;
+        }
+
+        &:hover {
+            svg {
+                fill: #EBEBEB;
+                stroke: $silver-color;
+            }
         }
     }
 

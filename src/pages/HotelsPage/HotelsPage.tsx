@@ -6,6 +6,7 @@ import { useAppSelector, useAppDispatch } from 'app/hooks';
 
 import {
     triggerHotelsDataFetch,
+    switchHotelsDataLoading,
     setHotelsDataError
 } from 'app/slices/hotelSlice';
 
@@ -39,11 +40,19 @@ const HotelsPage: React.FC = () => {
         };
 
         fetchHotelsData(args)
-            .then(() => console.log('start fetching'))
+            .then(() => {
+                console.log('start fetching');
+                dispatch(switchHotelsDataLoading(true));
+            })
             .then(() => dispatch(triggerHotelsDataFetch()))
             .catch(({ message }) => {
                 console.error('Error of fetchHotelsData promise:', message);
                 dispatch(setHotelsDataError(message));
+            })
+            .finally(() => {
+                setTimeout(() => {
+                    dispatch(switchHotelsDataLoading(false));
+                }, 1000);
             });
     }, [currentLocation]);
 

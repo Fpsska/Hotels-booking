@@ -23,7 +23,8 @@ const MainSection: React.FC = () => {
         favouriteHotelsData,
         hotelsDataFetchError,
         currentLocation,
-        arrivalDate
+        arrivalDate,
+        isHotelsDataLoading
     } = useAppSelector(state => state.hotelSlice);
 
     const [hotelsTextValue, setHotelsTextValue] = useState<string>('');
@@ -144,8 +145,10 @@ const MainSection: React.FC = () => {
                     <h3 className="data-message">
                         Something went wrong: {hotelsDataFetchError}
                     </h3>
-                ) : hotelsData.length === 0 ? (
+                ) : isHotelsDataLoading ? (
                     <h3 className="data-message">Loading data...</h3>
+                ) : hotelsData.length === 0 ? (
+                    <h3 className="data-message">No matches...</h3>
                 ) : (
                     <ul className="hotels-list hotels-list_main">
                         {hotelsData?.map((hotel: any) => {
