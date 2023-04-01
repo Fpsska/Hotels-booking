@@ -11,6 +11,25 @@
     }
 }
 
+@media screen and (max-width: 675px) {
+    .hotel-page__main-header {
+        flex-direction: column;
+    }
+
+    .hotel-page__breadcrumb-nav {
+        margin: 0 0 10px 0;
+
+        .breadcrumb-nav__element {
+            font-size: 26px;
+        }
+
+        .breadcrumb-nav__element_separator {
+            margin: 0 10px;
+        }
+    }
+
+}
+
 
 @media screen and (max-width: 600px) {
     .hotel-page__main {
@@ -64,18 +83,7 @@
     }
 
     .hotel-page__breadcrumb-nav {
-        margin: 0 0 10px 0;
-
-        .breadcrumb-nav__element {
-            font-size: 26px;
-        }
-
-        .breadcrumb-nav__element_separator {
-            margin: 0 10px;
-        }
+        max-width: 250px;
     }
 
-    .hotel-page__main-header {
-        flex-direction: column;
-    }
 }

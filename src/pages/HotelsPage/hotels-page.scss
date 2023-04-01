@@ -61,6 +61,13 @@
 
     &__breadcrumb-nav {
         margin-right: 10px;
+        max-width: 400px;
+
+        .breadcrumb-nav__element:last-child {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
     }
 
     &__sort-controls {

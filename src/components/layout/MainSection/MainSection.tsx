@@ -93,7 +93,10 @@ const MainSection: React.FC = () => {
                             />
                         </svg>
                     </li>
-                    <li className="breadcrumb-nav__element">
+                    <li
+                        className="breadcrumb-nav__element"
+                        title={getCorrectLocationName(currentLocation)}
+                    >
                         {getCorrectLocationName(currentLocation)}
                     </li>
                 </ul>
