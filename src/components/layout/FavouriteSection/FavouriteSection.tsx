@@ -37,7 +37,7 @@ const FavouriteSection: React.FC = () => {
                         ? 'hotel-page__sort-controls'
                         : ''
                 }
-                isDisabled={favouriteHotelsData.length === 0}
+                isDisabled={favouriteHotelsData.length <= 1}
             />
             <>
                 {favouriteHotelsData.length === 0 ? (
@@ -51,7 +51,7 @@ const FavouriteSection: React.FC = () => {
                                     name={hotel.fullName}
                                     date="7 июля 2020"
                                     duration="1 день"
-                                    price={hotel._score}
+                                    price={hotel.locationId}
                                     rating={hotel._score}
                                     {...hotel}
                                     additionalClass="hotels-list__template_favourite"

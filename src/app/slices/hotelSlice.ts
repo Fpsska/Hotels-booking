@@ -101,6 +101,29 @@ const hotelSlice = createSlice({
                 default:
                     return;
             }
+        },
+        sortFavouriteHotelsData(
+            state,
+            action: PayloadAction<{ operation: string }>
+        ) {
+            const { operation } = action.payload;
+            // /. payload
+
+            switch (operation) {
+                // 1..10
+                case 'rating':
+                    state.favouriteHotelsData = [
+                        ...state.favouriteHotelsData
+                    ].sort((a, b) => a._score - b._score);
+                    break;
+                case 'price':
+                    state.favouriteHotelsData = [
+                        ...state.favouriteHotelsData
+                    ].sort((a, b) => a.locationId - b.locationId);
+                    break;
+                default:
+                    return;
+            }
         }
     }
 });
@@ -113,7 +136,8 @@ export const {
     setHotelsData,
     setHotelsDataError,
     switchHotelFavouriteStatus,
-    setFavouriteHotelsData
+    setFavouriteHotelsData,
+    sortFavouriteHotelsData
 } = hotelSlice.actions;
 
 export default hotelSlice.reducer;

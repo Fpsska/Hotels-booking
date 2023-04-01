@@ -136,7 +136,7 @@ const MainSection: React.FC = () => {
                                     name={hotel.fullName}
                                     date="7 июля 2020"
                                     duration="1 день"
-                                    price={hotel._score}
+                                    price={hotel.locationId}
                                     rating={hotel._score}
                                     {...hotel}
                                 />

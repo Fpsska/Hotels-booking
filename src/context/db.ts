@@ -8,6 +8,14 @@ interface Ihotel {
     isFavourite: boolean;
 }
 
+export interface IsortBtn {
+    id: number;
+    role: string;
+    text: string;
+    label: string;
+    isActive: boolean;
+}
+
 export const mockHotelsListData: Ihotel[] = [
     {
         id: 1,
@@ -191,5 +199,22 @@ export const mockFavouriteHotelsListData: Ihotel[] = [
         price: 23924,
         rating: 3,
         isFavourite: true
+    }
+];
+
+export const mockButtonsData: IsortBtn[] = [
+    {
+        id: 1,
+        role: 'rating',
+        text: 'Рейтинг',
+        label: 'sort by rating',
+        isActive: true
+    },
+    {
+        id: 2,
+        role: 'price',
+        text: 'Цена',
+        label: 'sort by price',
+        isActive: false
     }
 ];

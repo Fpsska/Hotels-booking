@@ -118,11 +118,12 @@ const HotelTemplate: React.FC<propTypes> = props => {
 
                 <div className="hotels-list__bottom">
                     <span className="hotels-list__rating">
+                        {/* <input type="radio" />
                         <input type="radio" />
                         <input type="radio" />
                         <input type="radio" />
-                        <input type="radio" />
-                        <input type="radio" />
+                        <input type="radio" /> */}
+                        rating: {rating}
                     </span>
                     <div className="hotels-list__price">
                         <span className="hotels-list__price-title">Price:</span>
