@@ -110,7 +110,7 @@ const hotelSlice = createSlice({
             // /. payload
 
             switch (operation) {
-                // 1..10
+                // 1..10 (ascending/ASC order)
                 case 'rating':
                     state.favouriteHotelsData = [
                         ...state.favouriteHotelsData

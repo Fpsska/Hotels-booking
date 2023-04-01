@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { useAppSelector } from 'app/hooks';
 
 import { getCurrentDate } from 'utils/helpers/getCurrentDate';
+import { declensionByQuantity } from 'utils/helpers/declensionByQuantity';
+import { getCorrectLocationName } from 'utils/helpers/getCorrectLocationName';
 
 import HotelTemplate from 'components/ui/HotelTemplate/HotelTemplate';
 
@@ -23,6 +25,8 @@ const MainSection: React.FC = () => {
         currentLocation,
         arrivalDate
     } = useAppSelector(state => state.hotelSlice);
+
+    const [hotelsTextValue, setHotelsTextValue] = useState<string>('');
 
     const [breakpoints] = useState<{
         [key: number]: { [key: string]: string | number };
@@ -55,6 +59,18 @@ const MainSection: React.FC = () => {
 
     // /. hooks
 
+    useEffect(() => {
+        setHotelsTextValue(
+            declensionByQuantity(favouriteHotelsData.length, [
+                'отель',
+                'отеля',
+                'отелей'
+            ])
+        );
+    }, [favouriteHotelsData]);
+
+    // /. effects
+
     return (
         <div className="hotel-page__main">
             <div className="hotel-page__main-header">
@@ -78,7 +94,7 @@ const MainSection: React.FC = () => {
                         </svg>
                     </li>
                     <li className="breadcrumb-nav__element">
-                        {currentLocation}
+                        {getCorrectLocationName(currentLocation)}
                     </li>
                 </ul>
                 <span className="hotel-page__date">
@@ -117,7 +133,7 @@ const MainSection: React.FC = () => {
 
             <p className="hotel-page__info">
                 Добавлено в Избранное: <span>{favouriteHotelsData.length}</span>{' '}
-                отеля
+                {hotelsTextValue}
             </p>
 
             <>
