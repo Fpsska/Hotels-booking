@@ -18,10 +18,10 @@ const FavouriteSection: React.FC = () => {
 
     // /. hooks
 
-    useEffect(() => {
-        // update favouriteHotelsData[]
-        dispatch(setFavouriteHotelsData());
-    }, [hotelsData]);
+    // useEffect(() => {
+    //     // update favouriteHotelsData[]
+    //     dispatch(setFavouriteHotelsData());
+    // }, [hotelsData]);
 
     // /. effects
 

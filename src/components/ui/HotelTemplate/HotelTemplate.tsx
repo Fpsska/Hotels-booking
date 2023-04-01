@@ -41,10 +41,27 @@ const HotelTemplate: React.FC<propTypes> = props => {
     // /. hooks
 
     const onFavouriteActionClick = (): void => {
-        dispatch(
-            switchHotelFavouriteStatus({ payloadID: id, status: !isFavourite })
-        );
-        dispatch(setFavouriteHotelsData());
+        if (isFavourite) {
+            dispatch(
+                switchHotelFavouriteStatus({
+                    payloadID: id,
+                    status: false
+                })
+            );
+            dispatch(
+                setFavouriteHotelsData({ operation: 'remove', payloadID: id })
+            );
+        } else {
+            dispatch(
+                switchHotelFavouriteStatus({
+                    payloadID: id,
+                    status: true
+                })
+            );
+            dispatch(
+                setFavouriteHotelsData({ operation: 'add', payloadID: id })
+            );
+        }
     };
 
     // /. functions

@@ -5,7 +5,7 @@ import { triggerHotelsDataFetch, setHotelsData } from '../slices/hotelSlice';
 
 // /. imports
 
-interface Iargs {
+export interface Iargs {
     location: string;
     lang: string;
     limit: number;

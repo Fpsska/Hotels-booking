@@ -16,6 +16,8 @@ import MainSection from 'components/layout/MainSection/MainSection';
 import FindForm from 'components/layout/FindForm/FindForm';
 import FavouriteSection from 'components/layout/FavouriteSection/FavouriteSection';
 
+import { Iargs } from 'app/sagas/requestSaga';
+
 import './hotels-page.scss';
 
 // /. imports
@@ -30,10 +32,10 @@ const HotelsPage: React.FC = () => {
 
     useEffect(() => {
         // logic of handling fetchHotelsData Promise
-        const args: any = {
+        const args: Iargs = {
             location: currentLocation,
             lang: 'ru',
-            limit: 2
+            limit: 10
         };
 
         fetchHotelsData(args)

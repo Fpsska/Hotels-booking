@@ -42,6 +42,9 @@ const hotelSlice = createSlice({
         triggerHotelsDataFetch() {
             return;
         },
+        setHotelsDataError(state, action: PayloadAction<null | string>) {
+            state.hotelsDataFetchError = action.payload;
+        },
         setHotelsData(state, action: PayloadAction<any>) {
             const { hotelsData } = action.payload;
             // /. payload
@@ -64,20 +67,40 @@ const hotelSlice = createSlice({
             // /. payload
 
             const targetHotel = state.hotelsData.find(
-                item => item.id === payloadID
+                ({ id }) => id === payloadID
             );
 
             if (targetHotel) {
                 targetHotel.isFavourite = status;
             }
         },
-        setFavouriteHotelsData(state) {
-            state.favouriteHotelsData = state.hotelsData.filter(
-                hotel => hotel.isFavourite
-            );
-        },
-        setHotelsDataError(state, action: PayloadAction<null | string>) {
-            state.hotelsDataFetchError = action.payload;
+        setFavouriteHotelsData(
+            state,
+            action: PayloadAction<{ operation: string; payloadID: number }>
+        ) {
+            const { operation, payloadID } = action.payload;
+            // /. payload
+
+            switch (operation) {
+                case 'add': {
+                    const targetHotel = state.hotelsData.find(
+                        ({ id }) => id === payloadID
+                    );
+                    if (targetHotel) {
+                        state.favouriteHotelsData.push(targetHotel);
+                    }
+                    break;
+                }
+                case 'remove': {
+                    const targetHotelIDX = state.favouriteHotelsData.findIndex(
+                        ({ id }) => id === payloadID
+                    );
+                    state.favouriteHotelsData.splice(targetHotelIDX, 1);
+                    break;
+                }
+                default:
+                    return;
+            }
         }
     }
 });
