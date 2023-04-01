@@ -10,6 +10,8 @@ import { getCorrectLocationName } from 'utils/helpers/getCorrectLocationName';
 
 import HotelTemplate from 'components/ui/HotelTemplate/HotelTemplate';
 
+import { Ihotel } from 'context/db';
+
 import slider_1 from 'assets/images/slider-image_1.jpg';
 import slider_2 from 'assets/images/slider-image_2.jpg';
 import slider_3 from 'assets/images/slider-image_3.jpg';
@@ -151,16 +153,13 @@ const MainSection: React.FC = () => {
                     <h3 className="data-message">No matches...</h3>
                 ) : (
                     <ul className="hotels-list hotels-list_main">
-                        {hotelsData?.map((hotel: any) => {
+                        {hotelsData?.map((hotel: Ihotel) => {
                             return (
                                 <HotelTemplate
                                     key={hotel.id}
                                     name={hotel.fullName}
-                                    date="7 июля 2020"
-                                    duration="1 день"
-                                    price={hotel.locationId}
-                                    rating={hotel._score}
                                     {...hotel}
+                                    rating={hotel._score}
                                 />
                             );
                         })}

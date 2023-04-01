@@ -7,6 +7,8 @@ import { setFavouriteHotelsData } from 'app/slices/hotelSlice';
 import SortControls from 'components/ui/SortControls/SortControls';
 import HotelTemplate from 'components/ui/HotelTemplate/HotelTemplate';
 
+import { Ihotel } from 'context/db';
+
 // /. imports
 
 const FavouriteSection: React.FC = () => {
@@ -44,14 +46,11 @@ const FavouriteSection: React.FC = () => {
                     <h3 className="data-message">Favourite data is empty</h3>
                 ) : (
                     <ul className="hotels-list hotels-list_favourite">
-                        {favouriteHotelsData?.map(hotel => {
+                        {favouriteHotelsData?.map((hotel: Ihotel) => {
                             return (
                                 <HotelTemplate
                                     key={hotel.id}
                                     name={hotel.fullName}
-                                    date="7 июля 2020"
-                                    duration="1 день"
-                                    price={hotel.locationId}
                                     rating={hotel._score}
                                     {...hotel}
                                     additionalClass="hotels-list__template_favourite"

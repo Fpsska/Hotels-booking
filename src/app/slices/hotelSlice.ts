@@ -1,6 +1,9 @@
 import { createSlice, current, PayloadAction } from '@reduxjs/toolkit';
 
 import { getCurrentDate } from 'utils/helpers/getCurrentDate';
+import { getRandomNum } from 'utils/helpers/getRandomNum';
+
+import { Ihotel } from 'context/db';
 
 // /. imports
 
@@ -8,8 +11,8 @@ interface IhotelSlice {
     currentLocation: string;
     arrivalDate: string;
     daysCount: string;
-    hotelsData: any[];
-    favouriteHotelsData: any[];
+    hotelsData: Ihotel[];
+    favouriteHotelsData: Ihotel[];
     isHotelsDataLoading: boolean;
     hotelsDataFetchError: null | string;
 }
@@ -57,6 +60,9 @@ const hotelSlice = createSlice({
             const extendedHotelsData = hotelsData.map((hotel: any) => {
                 return {
                     ...hotel,
+                    date: '7 июля 2020',
+                    duration: '1 день',
+                    price: getRandomNum(100000),
                     isFavourite: false
                 };
             });
@@ -124,7 +130,7 @@ const hotelSlice = createSlice({
                 case 'price':
                     state.favouriteHotelsData = [
                         ...state.favouriteHotelsData
-                    ].sort((a, b) => a.locationId - b.locationId);
+                    ].sort((a, b) => a.price - b.price);
                     break;
                 default:
                     return;
