@@ -120,7 +120,6 @@ const HotelTemplate: React.FC<propTypes> = props => {
 
                 <div className="hotels-list__bottom">
                     <StarRating rating={rating} />
-                    <span className="hotels-list__rating">{rating}</span>
                     <div className="hotels-list__price">
                         <span className="hotels-list__price-title">Price:</span>
                         <span className="hotels-list__price-amount">

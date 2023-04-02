@@ -36,8 +36,8 @@ export const mockFavouriteHotelsData: Ihotel[] = [
         fullName: 'Mock Data Form slice #1',
         date: '1 апреля 2023',
         duration: '1 день',
-        price: 2222,
-        _score: 1,
+        price: 11111,
+        _score: 300000,
         isFavourite: true
     },
     {
@@ -45,8 +45,8 @@ export const mockFavouriteHotelsData: Ihotel[] = [
         fullName: 'Mock Data Form slice #2',
         date: '1 апреля 2023',
         duration: '1 день',
-        price: 1111,
-        _score: 2,
+        price: 22222,
+        _score: 200000,
         isFavourite: true
     }
 ];
@@ -92,96 +92,3 @@ export const starRatingData: IratingStar[] = [
         isFilled: false
     }
 ];
-
-// export const mockHotelsListData: Ihotel[] = [
-//     {
-//         id: 1,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: false
-//     },
-//     {
-//         id: 2,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: false
-//     },
-//     {
-//         id: 3,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: false
-//     },
-//     {
-//         id: 4,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: false
-//     },
-//     {
-//         id: 5,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: false
-//     },
-//     {
-//         id: 6,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: false
-//     },
-//     {
-//         id: 7,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: false
-//     },
-//     {
-//         id: 8,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: false
-//     },
-//     {
-//         id: 9,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: false
-//     },
-//     {
-//         id: 10,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: false
-//     }
-// ];

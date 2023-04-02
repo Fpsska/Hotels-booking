@@ -40,10 +40,7 @@ const HotelsPage: React.FC = () => {
         };
 
         fetchHotelsData(args)
-            .then(() => {
-                console.log('start fetching');
-                dispatch(switchHotelsDataLoading(true));
-            })
+            .then(() => dispatch(switchHotelsDataLoading(true)))
             .then(() => dispatch(triggerHotelsDataFetch()))
             .catch(({ message }) => {
                 console.error('Error of fetchHotelsData promise:', message);

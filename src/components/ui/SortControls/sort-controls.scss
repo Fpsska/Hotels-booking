@@ -13,14 +13,14 @@
         display: flex;
         align-items: center;
 
-        padding: 4px 8px;
+        padding: 5px 10px;
         background-color: transparent;
         color: #99A0A3;
         border: 1px solid $mercury-gray-color;
         border-radius: 4px;
 
         &:not(:last-child) {
-            margin-right: 8px;
+            margin-right: 10px;
         }
 
         &:disabled {
@@ -32,12 +32,10 @@
     &__button.active {
         color: $woodland-color;
         border-color: $woodland-color;
-
-
     }
 
     &__text {
-        margin-right: 4px;
+        margin-right: 8px;
         font-size: 14px;
         font-weight: 400;
     }

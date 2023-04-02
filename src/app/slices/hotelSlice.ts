@@ -72,7 +72,6 @@ const hotelSlice = createSlice({
             });
 
             state.hotelsData = extendedHotelsData;
-            console.log(state.hotelsData);
         },
         switchHotelFavouriteStatus(
             state,
