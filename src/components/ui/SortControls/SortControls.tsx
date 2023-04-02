@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 
 import { useAppDispatch } from 'app/hooks';
 
-import { sortFavouriteHotelsData } from 'app/slices/hotelSlice';
+import {
+    sortFavouriteHotelsDataByASC,
+    sortFavouriteHotelsDataByDSC
+} from 'app/slices/hotelSlice';
 
 import { mockButtonsData, IsortBtn } from 'context/db';
 
@@ -19,6 +22,7 @@ interface propTypes {
 
 const SortControls: React.FC<propTypes> = ({ additionalClass, isDisabled }) => {
     const [buttonsData, setButtonsData] = useState<IsortBtn[]>(mockButtonsData);
+    const [sortOder, setSetOrder] = useState<string>('DSC');
 
     const dispatch = useAppDispatch();
 
@@ -29,18 +33,34 @@ const SortControls: React.FC<propTypes> = ({ additionalClass, isDisabled }) => {
             if (role === btn.role) {
                 return {
                     ...btn,
-                    isActive: true
+                    isActive: true,
+                    statuses: {
+                        ...btn.statuses,
+                        isSortedByASC: sortOder === 'ASC' ? false : true,
+                        isSortedByDES: sortOder === 'DSC' ? false : true
+                    }
                 };
             } else {
                 return {
                     ...btn,
-                    isActive: false
+                    isActive: false,
+                    statuses: {
+                        ...btn.statuses,
+                        isSortedByASC: false,
+                        isSortedByDES: false
+                    }
                 };
             }
         });
         setButtonsData(newBtnData);
 
-        dispatch(sortFavouriteHotelsData({ operation: role }));
+        if (sortOder === 'DSC') {
+            setSetOrder('ASC');
+            dispatch(sortFavouriteHotelsDataByASC({ operation: role }));
+        } else if (sortOder === 'ASC') {
+            setSetOrder('DSC');
+            dispatch(sortFavouriteHotelsDataByDSC({ operation: role }));
+        }
     };
 
     // /. functions
@@ -69,6 +89,11 @@ const SortControls: React.FC<propTypes> = ({ additionalClass, isDisabled }) => {
                         </span>
                         <span>
                             <svg
+                                className={`sort-controls__icon ${
+                                    button.statuses.isSortedByASC
+                                        ? 'active'
+                                        : ''
+                                }`}
                                 width="9"
                                 height="6"
                                 viewBox="0 0 9 6"
@@ -81,6 +106,11 @@ const SortControls: React.FC<propTypes> = ({ additionalClass, isDisabled }) => {
                                 />
                             </svg>
                             <svg
+                                className={`sort-controls__icon ${
+                                    button.statuses.isSortedByDES
+                                        ? 'active'
+                                        : ''
+                                }`}
                                 width="9"
                                 height="6"
                                 viewBox="0 0 9 6"

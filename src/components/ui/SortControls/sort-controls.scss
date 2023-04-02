@@ -19,14 +19,6 @@
         border: 1px solid $mercury-gray-color;
         border-radius: 4px;
 
-        svg {
-            fill: rgba(0, 0, 0, 0.32);
-
-            &:nth-child(2) {
-                transform: rotateX(180deg);
-            }
-        }
-
         &:not(:last-child) {
             margin-right: 8px;
         }
@@ -41,9 +33,7 @@
         color: $woodland-color;
         border-color: $woodland-color;
 
-        svg {
-            fill: $woodland-color;
-        }
+
     }
 
     &__text {
@@ -56,5 +46,17 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    &__icon {
+        fill: rgba(0, 0, 0, 0.32);
+
+        &:nth-child(2) {
+            transform: rotateX(180deg);
+        }
+    }
+
+    &__icon.active {
+        fill: $woodland-color;
     }
 }

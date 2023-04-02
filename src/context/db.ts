@@ -13,7 +13,7 @@ export interface IsortBtn {
     role: string;
     text: string;
     label: string;
-    isActive: boolean;
+    statuses: { [key: string]: boolean };
 }
 
 export const mockButtonsData: IsortBtn[] = [
@@ -22,14 +22,20 @@ export const mockButtonsData: IsortBtn[] = [
         role: 'rating',
         text: 'Рейтинг',
         label: 'sort by rating',
-        isActive: true
+        statuses: {
+            isSortedByASC: false,
+            isSortedByDES: false
+        }
     },
     {
         id: 2,
         role: 'price',
         text: 'Цена',
         label: 'sort by price',
-        isActive: false
+        statuses: {
+            isSortedByASC: false,
+            isSortedByDES: false
+        }
     }
 ];
 
