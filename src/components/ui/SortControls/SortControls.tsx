@@ -7,7 +7,7 @@ import {
     sortFavouriteHotelsDataByDSC
 } from 'app/slices/hotelSlice';
 
-import { mockButtonsData } from 'context/db';
+import { sortButtonsData } from 'context/db';
 
 import { IsortBtn } from 'types/generalTypes';
 
@@ -23,7 +23,7 @@ interface propTypes {
 // /. interfaces
 
 const SortControls: React.FC<propTypes> = ({ additionalClass, isDisabled }) => {
-    const [buttonsData, setButtonsData] = useState<IsortBtn[]>(mockButtonsData);
+    const [buttonsData, setButtonsData] = useState<IsortBtn[]>(sortButtonsData);
     const [sortOder, setSetOrder] = useState<string>('DSC');
 
     const dispatch = useAppDispatch();

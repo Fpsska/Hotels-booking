@@ -20,3 +20,8 @@ export interface IhotelSliderImage {
     id: number;
     imageUrl: string;
 }
+
+export interface IratingStar {
+    id: number;
+    isFilled: boolean;
+}

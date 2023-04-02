@@ -1,8 +1,13 @@
-import { IsortBtn, Ihotel, IhotelSliderImage } from 'types/generalTypes';
+import {
+    IsortBtn,
+    Ihotel,
+    IhotelSliderImage,
+    IratingStar
+} from 'types/generalTypes';
 
 // /. imports
 
-export const mockButtonsData: IsortBtn[] = [
+export const sortButtonsData: IsortBtn[] = [
     {
         id: 1,
         role: 'rating',
@@ -62,6 +67,29 @@ export const mockHotelSliderImages: IhotelSliderImage[] = [
     {
         id: 4,
         imageUrl: 'slider-image_4.jpg'
+    }
+];
+
+export const starRatingData: IratingStar[] = [
+    {
+        id: 1,
+        isFilled: false
+    },
+    {
+        id: 2,
+        isFilled: false
+    },
+    {
+        id: 3,
+        isFilled: false
+    },
+    {
+        id: 4,
+        isFilled: false
+    },
+    {
+        id: 5,
+        isFilled: false
     }
 ];
 

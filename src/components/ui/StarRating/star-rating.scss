@@ -1,0 +1,28 @@
+.star-rating {
+    display: flex;
+
+    &__template {
+        &:not(:last-child) {
+            margin-right: 3px;
+        }
+
+        svg {
+            fill: #6C6845;
+
+            path:last-child {
+                fill-opacity: .6;
+            }
+        }
+    }
+
+    &__template.filled {
+
+        svg {
+            fill: #CDBC1E;
+
+            path:last-child {
+                fill-opacity: .1;
+            }
+        }
+    }
+}

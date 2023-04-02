@@ -9,6 +9,8 @@ import {
 
 import hotelImg from 'assets/icons/house-icon.svg';
 
+import StarRating from '../StarRating/StarRating';
+
 // /. imports
 
 interface propTypes {
@@ -117,14 +119,8 @@ const HotelTemplate: React.FC<propTypes> = props => {
                 </div>
 
                 <div className="hotels-list__bottom">
-                    <span className="hotels-list__rating">
-                        {/* <input type="radio" />
-                        <input type="radio" />
-                        <input type="radio" />
-                        <input type="radio" />
-                        <input type="radio" /> */}
-                        rating: {rating}
-                    </span>
+                    <StarRating rating={rating} />
+                    <span className="hotels-list__rating">{rating}</span>
                     <div className="hotels-list__price">
                         <span className="hotels-list__price-title">Price:</span>
                         <span className="hotels-list__price-amount">
