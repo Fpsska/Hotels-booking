@@ -7,7 +7,9 @@ import {
     sortFavouriteHotelsDataByDSC
 } from 'app/slices/hotelSlice';
 
-import { mockButtonsData, IsortBtn } from 'context/db';
+import { mockButtonsData } from 'context/db';
+
+import { IsortBtn } from 'types/generalTypes';
 
 import './sort-controls.scss';
 

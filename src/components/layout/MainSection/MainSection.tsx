@@ -10,12 +10,7 @@ import { getCorrectLocationName } from 'utils/helpers/getCorrectLocationName';
 
 import HotelTemplate from 'components/ui/HotelTemplate/HotelTemplate';
 
-import { Ihotel } from 'context/db';
-
-import slider_1 from 'assets/images/slider-image_1.jpg';
-import slider_2 from 'assets/images/slider-image_2.jpg';
-import slider_3 from 'assets/images/slider-image_3.jpg';
-import slider_4 from 'assets/images/slider-image_4.jpg';
+import { Ihotel, IhotelSliderImage } from 'types/generalTypes';
 
 // /. imports
 
@@ -26,7 +21,8 @@ const MainSection: React.FC = () => {
         hotelsDataFetchError,
         currentLocation,
         arrivalDate,
-        isHotelsDataLoading
+        isHotelsDataLoading,
+        hotelSliderImages
     } = useAppSelector(state => state.hotelSlice);
 
     const [hotelsTextValue, setHotelsTextValue] = useState<string>('');
@@ -110,30 +106,16 @@ const MainSection: React.FC = () => {
 
             <div className="hotel-page__slider">
                 <Swiper breakpoints={breakpoints}>
-                    <SwiperSlide>
-                        <img
-                            src={slider_1}
-                            alt="hotel image"
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img
-                            src={slider_2}
-                            alt="hotel image"
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img
-                            src={slider_3}
-                            alt="hotel image"
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img
-                            src={slider_4}
-                            alt="hotel image"
-                        />
-                    </SwiperSlide>
+                    {hotelSliderImages.map((image: IhotelSliderImage) => {
+                        return (
+                            <SwiperSlide key={image.id}>
+                                <img
+                                    src={require(`assets/images/${image.imageUrl}`)}
+                                    alt="hotel image"
+                                />
+                            </SwiperSlide>
+                        );
+                    })}
                 </Swiper>
             </div>
 

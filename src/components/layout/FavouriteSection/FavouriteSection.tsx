@@ -1,31 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-import { useAppSelector, useAppDispatch } from 'app/hooks';
-
-import { setFavouriteHotelsData } from 'app/slices/hotelSlice';
+import { useAppSelector } from 'app/hooks';
 
 import SortControls from 'components/ui/SortControls/SortControls';
 import HotelTemplate from 'components/ui/HotelTemplate/HotelTemplate';
 
-import { Ihotel } from 'context/db';
+import { Ihotel } from 'types/generalTypes';
 
 // /. imports
 
 const FavouriteSection: React.FC = () => {
-    const { hotelsData, favouriteHotelsData } = useAppSelector(
-        state => state.hotelSlice
-    );
-
-    const dispatch = useAppDispatch();
+    const { favouriteHotelsData } = useAppSelector(state => state.hotelSlice);
 
     // /. hooks
-
-    // useEffect(() => {
-    //     // update favouriteHotelsData[]
-    //     dispatch(setFavouriteHotelsData());
-    // }, [hotelsData]);
-
-    // /. effects
 
     return (
         <div className="hotel-page__favourite">

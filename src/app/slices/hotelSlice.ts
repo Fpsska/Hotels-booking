@@ -3,7 +3,9 @@ import { createSlice, current, PayloadAction } from '@reduxjs/toolkit';
 import { getCurrentDate } from 'utils/helpers/getCurrentDate';
 import { getRandomNum } from 'utils/helpers/getRandomNum';
 
-import { Ihotel } from 'context/db';
+import { mockFavouriteHotelsData, mockHotelSliderImages } from 'context/db';
+
+import { Ihotel, IhotelSliderImage } from 'types/generalTypes';
 
 // /. imports
 
@@ -13,6 +15,7 @@ interface IhotelSlice {
     daysCount: string;
     hotelsData: Ihotel[];
     favouriteHotelsData: Ihotel[];
+    hotelSliderImages: IhotelSliderImage[];
     isHotelsDataLoading: boolean;
     hotelsDataFetchError: null | string;
 }
@@ -24,7 +27,8 @@ const initialState: IhotelSlice = {
     arrivalDate: getCurrentDate(new Date()), // 2023-03-31
     daysCount: '1',
     hotelsData: [],
-    favouriteHotelsData: [],
+    favouriteHotelsData: mockFavouriteHotelsData,
+    hotelSliderImages: mockHotelSliderImages,
     isHotelsDataLoading: true,
     hotelsDataFetchError: null
 };

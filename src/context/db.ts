@@ -1,20 +1,6 @@
-export interface Ihotel {
-    id: number;
-    fullName: string;
-    date: string;
-    duration: string;
-    price: number;
-    _score: number;
-    isFavourite: boolean;
-}
+import { IsortBtn, Ihotel, IhotelSliderImage } from 'types/generalTypes';
 
-export interface IsortBtn {
-    id: number;
-    role: string;
-    text: string;
-    label: string;
-    statuses: { [key: string]: boolean };
-}
+// /. imports
 
 export const mockButtonsData: IsortBtn[] = [
     {
@@ -36,6 +22,46 @@ export const mockButtonsData: IsortBtn[] = [
             isSortedByASC: false,
             isSortedByDES: false
         }
+    }
+];
+
+export const mockFavouriteHotelsData: Ihotel[] = [
+    {
+        id: 1,
+        fullName: 'Mock Data Form slice #1',
+        date: '1 апреля 2023',
+        duration: '1 день',
+        price: 2222,
+        _score: 1,
+        isFavourite: true
+    },
+    {
+        id: 2,
+        fullName: 'Mock Data Form slice #2',
+        date: '1 апреля 2023',
+        duration: '1 день',
+        price: 1111,
+        _score: 2,
+        isFavourite: true
+    }
+];
+
+export const mockHotelSliderImages: IhotelSliderImage[] = [
+    {
+        id: 1,
+        imageUrl: 'slider-image_1.jpg'
+    },
+    {
+        id: 2,
+        imageUrl: 'slider-image_2.jpg'
+    },
+    {
+        id: 3,
+        imageUrl: 'slider-image_3.jpg'
+    },
+    {
+        id: 4,
+        imageUrl: 'slider-image_4.jpg'
     }
 ];
 
@@ -129,98 +155,5 @@ export const mockButtonsData: IsortBtn[] = [
 //         price: 23924,
 //         rating: 3,
 //         isFavourite: false
-//     }
-// ];
-
-// export const mockFavouriteHotelsListData: Ihotel[] = [
-//     {
-//         id: 1,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: true
-//     },
-//     {
-//         id: 2,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: true
-//     },
-//     {
-//         id: 3,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: true
-//     },
-//     {
-//         id: 4,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: true
-//     },
-//     {
-//         id: 5,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: true
-//     },
-//     {
-//         id: 6,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: true
-//     },
-//     {
-//         id: 7,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: true
-//     },
-//     {
-//         id: 8,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: true
-//     },
-//     {
-//         id: 9,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: true
-//     },
-//     {
-//         id: 10,
-//         name: 'Moscow Marriott Grand Hotel',
-//         date: '7 июля 2020',
-//         duration: '1 день',
-//         price: 23924,
-//         rating: 3,
-//         isFavourite: true
 //     }
 // ];
