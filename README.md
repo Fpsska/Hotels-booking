@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
 
+###### _powered by :_
+- [traverlpayouts API](https://support.travelpayouts.com/hc/ru/categories/200358578)
+- [swiper](https://swiperjs.com/)
+
+### `Watch demo` _[CodeConstruction-Task](https://fpsska.github.io/CodeConstruction-Task/)_
+
 ## Available Scripts
 
 In the project directory, you can run:
