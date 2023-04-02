@@ -10,7 +10,7 @@ export async function fetchHotelsData(props: propTypes): Promise<any> {
     const { location, lang, limit } = props;
 
     try {
-        const URL = `http://engine.hotellook.com/api/v2/lookup.json?query=${location}&lang=${lang}&lookFor=hotel&limit=${limit}`;
+        const URL = `https://engine.hotellook.com/api/v2/lookup.json?query=${location}&lang=${lang}&lookFor=hotel&limit=${limit}`;
 
         const response = await fetch(URL);
 
