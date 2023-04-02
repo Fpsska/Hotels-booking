@@ -1,6 +1,10 @@
 const express = require("express");
 
+const hotelsRouter = require("./routes/hotels.routes");
+
 const app = express();
+
+require("dotenv").config();
 
 // middleware
 
@@ -20,6 +24,8 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 // routes
+
+app.use("/api/data", hotelsRouter);
 
 app.get("/", (req, res) => {
   res.send("START route");
