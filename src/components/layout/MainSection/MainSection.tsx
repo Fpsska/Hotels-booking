@@ -138,10 +138,13 @@ const MainSection: React.FC = () => {
                         {hotelsData?.map((hotel: Ihotel) => {
                             return (
                                 <HotelTemplate
-                                    key={hotel.id}
-                                    name={hotel.fullName}
+                                    key={hotel.hotelId}
+                                    id={hotel.hotelId}
+                                    name={hotel.hotelName}
+                                    locationName={hotel.location.name}
+                                    price={hotel.priceAvg}
+                                    rating={hotel.stars}
                                     {...hotel}
-                                    rating={hotel._score}
                                 />
                             );
                         })}

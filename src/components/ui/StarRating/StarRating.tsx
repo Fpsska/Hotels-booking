@@ -20,12 +20,9 @@ const StarRating: React.FC<propTypes> = ({ rating }) => {
     // /. hooks
 
     useEffect(() => {
-        const pointsInOneRating = 100000;
-        const ratingFromPoints = Math.floor(rating / pointsInOneRating);
-
         const newRatingData = ratingData.map(
             (star: IratingStar, idx: number) => {
-                if (idx < ratingFromPoints) {
+                if (idx < rating) {
                     return {
                         ...star,
                         isFilled: true

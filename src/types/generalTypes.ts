@@ -1,10 +1,11 @@
 export interface Ihotel {
-    id: number;
-    fullName: string;
+    hotelId: number;
+    hotelName: string;
+    location: any;
     date: string;
     duration: string;
-    price: number;
-    _score: number;
+    priceAvg: number;
+    stars: number;
     isFavourite: boolean;
 }
 

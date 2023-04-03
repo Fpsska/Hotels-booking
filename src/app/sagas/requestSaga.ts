@@ -24,7 +24,7 @@ function* fetchRequestsWorker(): any {
     };
 
     const requestsData = yield call(fetchHotelsData, { ...args });
-    yield put(setHotelsData({ hotelsData: requestsData.results.hotels }));
+    yield put(setHotelsData({ hotelsData: requestsData }));
 }
 
 export function* fetchRequestsWatcher(): any {

@@ -25,6 +25,7 @@ interface IhotelSlice {
 const initialState: IhotelSlice = {
     currentLocation: 'Москва',
     arrivalDate: getCurrentDate(new Date()), // 2023-03-31
+    // arrivalDate: '2023-03-31',
     daysCount: '1',
     hotelsData: [],
     favouriteHotelsData: mockFavouriteHotelsData,
@@ -61,17 +62,17 @@ const hotelSlice = createSlice({
             const { hotelsData } = action.payload;
             // /. payload
 
-            const extendedHotelsData = hotelsData.map((hotel: any) => {
+            const extendedHotelsData = hotelsData.map((hotel: Ihotel) => {
                 return {
                     ...hotel,
                     date: '7 июля 2020',
                     duration: '1 день',
-                    price: getRandomNum(100000),
                     isFavourite: false
                 };
             });
 
             state.hotelsData = extendedHotelsData;
+            console.log(state.hotelsData);
         },
         switchHotelFavouriteStatus(
             state,
@@ -81,7 +82,7 @@ const hotelSlice = createSlice({
             // /. payload
 
             const targetHotel = state.hotelsData.find(
-                ({ id }) => id === payloadID
+                ({ hotelId }) => hotelId === payloadID
             );
 
             if (targetHotel) {
@@ -98,7 +99,7 @@ const hotelSlice = createSlice({
             switch (operation) {
                 case 'add': {
                     const targetHotel = state.hotelsData.find(
-                        ({ id }) => id === payloadID
+                        ({ hotelId }) => hotelId === payloadID
                     );
                     if (targetHotel) {
                         state.favouriteHotelsData.push(targetHotel);
@@ -107,7 +108,7 @@ const hotelSlice = createSlice({
                 }
                 case 'remove': {
                     const targetHotelIDX = state.favouriteHotelsData.findIndex(
-                        ({ id }) => id === payloadID
+                        ({ hotelId }) => hotelId === payloadID
                     );
                     state.favouriteHotelsData.splice(targetHotelIDX, 1);
                     break;
@@ -128,12 +129,12 @@ const hotelSlice = createSlice({
                 case 'rating':
                     state.favouriteHotelsData = [
                         ...state.favouriteHotelsData
-                    ].sort((a, b) => a._score - b._score);
+                    ].sort((a, b) => a.stars - b.stars);
                     break;
                 case 'price':
                     state.favouriteHotelsData = [
                         ...state.favouriteHotelsData
-                    ].sort((a, b) => a.price - b.price);
+                    ].sort((a, b) => a.priceAvg - b.priceAvg);
                     break;
                 default:
                     return;
@@ -151,12 +152,12 @@ const hotelSlice = createSlice({
                 case 'rating':
                     state.favouriteHotelsData = [
                         ...state.favouriteHotelsData
-                    ].sort((a, b) => b._score - a._score);
+                    ].sort((a, b) => b.stars - a.stars);
                     break;
                 case 'price':
                     state.favouriteHotelsData = [
                         ...state.favouriteHotelsData
-                    ].sort((a, b) => b.price - a.price);
+                    ].sort((a, b) => b.priceAvg - a.priceAvg);
                     break;
                 default:
                     return;

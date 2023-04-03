@@ -36,9 +36,12 @@ const FavouriteSection: React.FC = () => {
                         {favouriteHotelsData?.map((hotel: Ihotel) => {
                             return (
                                 <HotelTemplate
-                                    key={hotel.id}
-                                    name={hotel.fullName}
-                                    rating={hotel._score}
+                                    key={hotel.hotelId}
+                                    id={hotel.hotelId}
+                                    name={hotel.hotelName}
+                                    locationName={hotel.location.name}
+                                    rating={hotel.stars}
+                                    price={hotel.priceAvg}
                                     {...hotel}
                                     additionalClass="hotels-list__template_favourite"
                                 />

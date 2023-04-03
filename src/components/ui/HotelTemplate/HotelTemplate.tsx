@@ -16,6 +16,7 @@ import StarRating from '../StarRating/StarRating';
 interface propTypes {
     id: number;
     name: string;
+    locationName: string;
     date: string;
     duration: string;
     price: number;
@@ -30,6 +31,7 @@ const HotelTemplate: React.FC<propTypes> = props => {
     const {
         id,
         name,
+        locationName,
         date,
         duration,
         price,
@@ -84,7 +86,9 @@ const HotelTemplate: React.FC<propTypes> = props => {
             <div className="hotels-list__info">
                 <div className="hotels-list__header">
                     <div className="hotels-list__descr">
-                        <h3 className="hotels-list__name">{name}</h3>
+                        <h3 className="hotels-list__name">
+                            {`${name}, ${locationName}`}
+                        </h3>
                         <p className="hotels-list__date">
                             <span>{date}</span> - <span>{duration}</span>
                         </p>

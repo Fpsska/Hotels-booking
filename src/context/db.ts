@@ -32,21 +32,23 @@ export const sortButtonsData: IsortBtn[] = [
 
 export const mockFavouriteHotelsData: Ihotel[] = [
     {
-        id: 1,
-        fullName: 'Mock Data Form slice #1',
+        hotelId: 1,
+        hotelName: 'Mock Data Form slice #1',
+        location: 'Redux',
         date: '1 апреля 2023',
         duration: '1 день',
-        price: 11111,
-        _score: 300000,
+        priceAvg: 11111,
+        stars: 4,
         isFavourite: true
     },
     {
-        id: 2,
-        fullName: 'Mock Data Form slice #2',
+        hotelId: 2,
+        hotelName: 'Mock Data Form slice #2',
+        location: 'Redux',
         date: '1 апреля 2023',
         duration: '1 день',
-        price: 22222,
-        _score: 200000,
+        priceAvg: 22222,
+        stars: 3,
         isFavourite: true
     }
 ];
