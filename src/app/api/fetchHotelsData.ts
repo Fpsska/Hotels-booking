@@ -17,6 +17,7 @@ export async function fetchHotelsData(props: propTypes): Promise<any> {
     const checkOut = getCurrentDate(
         new Date(new Date().setDate(today.getDate() + duration))
     );
+    console.log('checkIn:', checkIn, '/', 'checkOut:', checkOut);
 
     // /. variables
 
