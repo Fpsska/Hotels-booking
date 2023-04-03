@@ -38,7 +38,7 @@ const FindForm: React.FC = () => {
                 setCurrentLocation(locationInput.value || currentLocation)
             );
             dispatch(setArrivalDate(dateInput.value || arrivalDate));
-            dispatch(setDaysCount(daysInput.value || daysCount));
+            dispatch(setDaysCount(+daysInput.value || daysCount));
         }
     };
 
@@ -74,7 +74,7 @@ const FindForm: React.FC = () => {
                 <input
                     className="find-form__input"
                     type="text"
-                    placeholder={daysCount}
+                    placeholder={String(daysCount)}
                     value={daysInput.value}
                     onChange={e => daysInput.onInputChange(e, 'days')}
                 />

@@ -35,8 +35,8 @@ export const mockFavouriteHotelsData: Ihotel[] = [
         hotelId: 1,
         hotelName: 'Mock Data Form slice #1',
         location: 'Redux',
-        date: '1 апреля 2023',
-        duration: '1 день',
+        checkIn: '1 апреля 2023',
+        duration: 1,
         priceAvg: 11111,
         stars: 4,
         isFavourite: true
@@ -45,8 +45,8 @@ export const mockFavouriteHotelsData: Ihotel[] = [
         hotelId: 2,
         hotelName: 'Mock Data Form slice #2',
         location: 'Redux',
-        date: '1 апреля 2023',
-        duration: '1 день',
+        checkIn: '1 апреля 2023',
+        duration: 1,
         priceAvg: 22222,
         stars: 3,
         isFavourite: true

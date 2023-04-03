@@ -12,7 +12,7 @@ import { Ihotel, IhotelSliderImage } from 'types/generalTypes';
 interface IhotelSlice {
     currentLocation: string;
     arrivalDate: string;
-    daysCount: string;
+    daysCount: number;
     hotelsData: Ihotel[];
     favouriteHotelsData: Ihotel[];
     hotelSliderImages: IhotelSliderImage[];
@@ -24,9 +24,8 @@ interface IhotelSlice {
 
 const initialState: IhotelSlice = {
     currentLocation: 'Москва',
-    arrivalDate: getCurrentDate(new Date()), // 2023-03-31
-    // arrivalDate: '2023-03-31',
-    daysCount: '1',
+    arrivalDate: getCurrentDate(new Date()), // YY-MM-DD
+    daysCount: 1,
     hotelsData: [],
     favouriteHotelsData: mockFavouriteHotelsData,
     hotelSliderImages: mockHotelSliderImages,
@@ -46,7 +45,7 @@ const hotelSlice = createSlice({
         setArrivalDate(state, action: PayloadAction<string>) {
             state.arrivalDate = action.payload;
         },
-        setDaysCount(state, action: PayloadAction<string>) {
+        setDaysCount(state, action: PayloadAction<number>) {
             state.daysCount = action.payload;
         },
         triggerHotelsDataFetch() {
@@ -65,8 +64,9 @@ const hotelSlice = createSlice({
             const extendedHotelsData = hotelsData.map((hotel: Ihotel) => {
                 return {
                     ...hotel,
-                    date: '7 июля 2020',
-                    duration: '1 день',
+                    priceAvg: Math.ceil(hotel.priceAvg),
+                    checkIn: getCurrentDate(state.arrivalDate, 'combined'),
+                    duration: state.daysCount,
                     isFavourite: false
                 };
             });

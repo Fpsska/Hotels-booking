@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useAppDispatch } from 'app/hooks';
 
@@ -6,6 +6,8 @@ import {
     switchHotelFavouriteStatus,
     setFavouriteHotelsData
 } from 'app/slices/hotelSlice';
+
+import { declensionByQuantity } from 'utils/helpers/declensionByQuantity';
 
 import hotelImg from 'assets/icons/house-icon.svg';
 
@@ -17,8 +19,8 @@ interface propTypes {
     id: number;
     name: string;
     locationName: string;
-    date: string;
-    duration: string;
+    checkIn: string;
+    duration: number;
     price: number;
     rating: number;
     isFavourite: boolean;
@@ -32,13 +34,15 @@ const HotelTemplate: React.FC<propTypes> = props => {
         id,
         name,
         locationName,
-        date,
+        checkIn,
         duration,
         price,
         rating,
         isFavourite,
         additionalClass
     } = props;
+
+    const [daysTextValue, setDaysTextValue] = useState<string>('');
 
     const dispatch = useAppDispatch();
 
@@ -70,6 +74,14 @@ const HotelTemplate: React.FC<propTypes> = props => {
 
     // /. functions
 
+    useEffect(() => {
+        setDaysTextValue(
+            declensionByQuantity(duration, ['день', 'дня', 'дней'])
+        );
+    }, [duration]);
+
+    // /. effects
+
     return (
         <li
             className={`hotels-list__template ${
@@ -90,7 +102,8 @@ const HotelTemplate: React.FC<propTypes> = props => {
                             {`${name}, ${locationName}`}
                         </h3>
                         <p className="hotels-list__date">
-                            <span>{date}</span> - <span>{duration}</span>
+                            <span>{checkIn}</span> -{' '}
+                            <span>{`${duration} ${daysTextValue}`}</span>
                         </p>
                     </div>
                     <button

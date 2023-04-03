@@ -8,6 +8,8 @@ import { triggerHotelsDataFetch, setHotelsData } from '../slices/hotelSlice';
 export interface Iargs {
     location: string;
     lang: string;
+    checkIn: string;
+    duration: number;
     limit: number;
 }
 
@@ -15,11 +17,15 @@ export interface Iargs {
 
 function* fetchRequestsWorker(): any {
     // business logic
-    const { currentLocation } = yield select(state => state.hotelSlice);
+    const { currentLocation, arrivalDate, daysCount } = yield select(
+        state => state.hotelSlice
+    );
 
     const args: Iargs = yield {
         location: currentLocation,
         lang: 'ru',
+        checkIn: arrivalDate,
+        duration: daysCount,
         limit: 10
     };
 

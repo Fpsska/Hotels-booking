@@ -25,7 +25,9 @@ import './hotels-page.scss';
 
 const HotelsPage: React.FC = () => {
     const { isUserAuthorized } = useAppSelector(state => state.authSlice);
-    const { currentLocation } = useAppSelector(state => state.hotelSlice);
+    const { currentLocation, arrivalDate, daysCount } = useAppSelector(
+        state => state.hotelSlice
+    );
 
     const dispatch = useAppDispatch();
 
@@ -36,6 +38,8 @@ const HotelsPage: React.FC = () => {
         const args: Iargs = {
             location: currentLocation,
             lang: 'ru',
+            checkIn: arrivalDate,
+            duration: daysCount,
             limit: 10
         };
 
@@ -51,7 +55,7 @@ const HotelsPage: React.FC = () => {
                     dispatch(switchHotelsDataLoading(false));
                 }, 1000);
             });
-    }, [currentLocation]);
+    }, [currentLocation, arrivalDate, daysCount]);
 
     // /. effects
 
