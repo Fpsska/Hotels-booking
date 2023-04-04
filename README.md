@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [traverlpayouts API](https://support.travelpayouts.com/hc/ru/categories/200358578)
 - [swiper](https://swiperjs.com/)
 
-### `Watch demo` _[LIIS-Task](https://fpsska.github.io/LIIS-Task/)_
+### `Watch demo` _[LIIS-Task](https://liis-task-alpha.vercel.app/)_
 
 ## Available Scripts
 
