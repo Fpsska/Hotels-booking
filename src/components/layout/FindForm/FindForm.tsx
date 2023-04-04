@@ -23,9 +23,19 @@ const FindForm: React.FC = () => {
 
     const dispatch = useAppDispatch();
 
-    const locationInput = useInput('', {});
+    const locationInput = useInput(currentLocation, {});
     const dateInput = useInput(arrivalDate, {});
-    const daysInput = useInput('', {});
+    const daysInput = useInput(String(daysCount), {});
+
+    const isCheckInDateIncorrect =
+        new Date(dateInput.value) < new Date(arrivalDate);
+    const isDurationValueIncorrect = +daysInput.value < 1;
+
+    const isButtonDisabled =
+        !isUserAuthorized ||
+        isHotelsDataLoading ||
+        isCheckInDateIncorrect ||
+        isDurationValueIncorrect;
 
     // /. hooks
 
@@ -60,7 +70,11 @@ const FindForm: React.FC = () => {
                     onChange={e => locationInput.onInputChange(e, 'location')}
                 />
             </label>
-            <label className="find-form__label">
+            <label
+                className={`find-form__label ${
+                    isCheckInDateIncorrect ? 'invalid' : ''
+                }`}
+            >
                 <span>Дата заселения</span>
                 <input
                     className="find-form__input"
@@ -69,7 +83,11 @@ const FindForm: React.FC = () => {
                     onChange={e => dateInput.onInputChange(e, 'date')}
                 />
             </label>
-            <label className="find-form__label find-form__label_duration">
+            <label
+                className={`find-form__label find-form__label_duration ${
+                    isDurationValueIncorrect ? 'invalid' : ''
+                }`}
+            >
                 <span>Количество дней</span>
                 <input
                     className="find-form__input"
@@ -82,7 +100,7 @@ const FindForm: React.FC = () => {
             <Button
                 text="Найти"
                 additionalClass="button_find"
-                isDisabled={!isUserAuthorized || isHotelsDataLoading}
+                isDisabled={isButtonDisabled}
             />
         </form>
     );
