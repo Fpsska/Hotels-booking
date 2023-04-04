@@ -13,11 +13,19 @@ import { getCurrentDate } from 'utils/helpers/getCurrentDate';
 export async function fetchHotelsData(props: propTypes): Promise<any> {
     const { location, lang, checkIn, duration, limit } = props;
 
-    const today = new Date();
+    const today = new Date(checkIn);
     const checkOut = getCurrentDate(
         new Date(new Date().setDate(today.getDate() + duration))
     );
-    console.log('checkIn:', checkIn, '/', 'checkOut:', checkOut);
+    console.log(
+        'checkIn:',
+        checkIn,
+        '/',
+        'checkOut:',
+        checkOut,
+        'duration:',
+        duration
+    );
 
     // /. variables
 
