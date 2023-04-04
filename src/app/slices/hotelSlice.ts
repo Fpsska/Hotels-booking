@@ -1,7 +1,6 @@
 import { createSlice, current, PayloadAction } from '@reduxjs/toolkit';
 
 import { getCurrentDate } from 'utils/helpers/getCurrentDate';
-import { getRandomNum } from 'utils/helpers/getRandomNum';
 
 import { mockFavouriteHotelsData, mockHotelSliderImages } from 'context/db';
 
