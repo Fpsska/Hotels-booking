@@ -18,7 +18,7 @@ const Navigation: React.FC = () => {
 
     const onButtonLogOutClick = (): void => {
         dispatch(switchUserAuthStatus(false));
-        navigate('/LIIS-Task');
+        navigate('/');
 
         localStorage.setItem('isUserAuthStatus', JSON.stringify(false));
         localStorage.setItem(

@@ -35,7 +35,7 @@ const AuthForm: React.FC = () => {
         //
         if (isEmailValid && isPasswordValid) {
             dispatch(switchUserAuthStatus(true));
-            navigate('/LIIS-Task/hotels');
+            navigate('/hotels');
 
             localStorage.setItem('isUserAuthStatus', JSON.stringify(true));
             localStorage.setItem(

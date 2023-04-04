@@ -19,7 +19,7 @@ const App: React.FC = () => {
         <div className="App">
             <Routes>
                 <Route
-                    path="LIIS-Task"
+                    path="/"
                     element={<Layout />}
                 >
                     <Route

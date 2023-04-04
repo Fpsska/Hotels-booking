@@ -76,7 +76,7 @@ const HotelsPage: React.FC = () => {
         </div>
     ) : (
         <Navigate
-            to="/LIIS-Task"
+            to="/"
             replace={true}
         />
     );
