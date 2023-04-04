@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/LIIS-Task/static/css/main.6bbf224c.css",
-    "main.js": "/LIIS-Task/static/js/main.001b9548.js",
+    "main.js": "/LIIS-Task/static/js/main.3cc667dd.js",
     "static/js/787.0df6366e.chunk.js": "/LIIS-Task/static/js/787.0df6366e.chunk.js",
     "static/media/auth-background.png": "/LIIS-Task/static/media/auth-background.6bd8f5eaf9d46fad436d.png",
     "static/media/slider-image_3.jpg": "/LIIS-Task/static/media/slider-image_3.553b980bbc054b57da0c.jpg",
     "static/media/slider-image_4.jpg": "/LIIS-Task/static/media/slider-image_4.9dbf74a2908ab70d503a.jpg",
     "static/media/slider-image_2.jpg": "/LIIS-Task/static/media/slider-image_2.25f4eaaf9cb0256ce935.jpg",
     "static/media/slider-image_1.jpg": "/LIIS-Task/static/media/slider-image_1.41db5618f2a50d590be2.jpg",
-    "static/media/house-icon.svg": "/LIIS-Task/static/media/house-icon.449931e0d1dcc95f8a0de3f081629d5f.svg",
+    "static/media/house-icon.svg": "/LIIS-Task/static/media/house-icon.9f7d23a0caa6cb622bbc85f43fe90ce2.svg",
     "index.html": "/LIIS-Task/index.html",
     "main.6bbf224c.css.map": "/LIIS-Task/static/css/main.6bbf224c.css.map",
-    "main.001b9548.js.map": "/LIIS-Task/static/js/main.001b9548.js.map",
+    "main.3cc667dd.js.map": "/LIIS-Task/static/js/main.3cc667dd.js.map",
     "787.0df6366e.chunk.js.map": "/LIIS-Task/static/js/787.0df6366e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6bbf224c.css",
-    "static/js/main.001b9548.js"
+    "static/js/main.3cc667dd.js"
   ]
 }
