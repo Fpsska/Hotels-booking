@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react';
 
+import { Ivalidation } from './useInput';
+
 // /. imports
 
-interface propTypes {
-    value: string;
-    validations: any[];
+export interface Ierror {
+    isEmptyErr: boolean;
+    isMinLengthErr: boolean;
+    isCyrillicErr: boolean;
+    isEmailValidErr: boolean;
 }
 
 // /. interfaces
 
-export function useValiadtion({ value, validations }: propTypes): any {
+export function useValiadtion(value: string, validations: Ivalidation): Ierror {
     const [isEmptyErr, setEmptyErr] = useState<boolean>(true);
     const [isMinLengthErr, setMinLengthErr] = useState<boolean>(false);
     const [isCyrillicErr, setCyrillicErr] = useState<boolean>(false);
@@ -19,14 +23,17 @@ export function useValiadtion({ value, validations }: propTypes): any {
 
     useEffect(() => {
         for (const validation in validations) {
+            // console.log(validations);
             switch (validation) {
                 case 'isEmpty':
                     !value ? setEmptyErr(true) : setEmptyErr(false);
                     break;
                 case 'minLength':
-                    value.length < validations[validation]
-                        ? setMinLengthErr(true)
-                        : setMinLengthErr(false);
+                    if (validations.minLength) {
+                        value.length < validations.minLength
+                            ? setMinLengthErr(true)
+                            : setMinLengthErr(false);
+                    }
                     break;
                 case 'isCyrillicAllowed': {
                     const cyrillicPattern = new RegExp(/[а-яА-ЯЁё]/gi);

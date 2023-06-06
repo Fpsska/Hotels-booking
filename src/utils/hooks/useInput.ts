@@ -1,18 +1,43 @@
 import { useState } from 'react';
 
-import { useValiadtion } from './useValidation';
+import { useValiadtion, Ierror } from './useValidation';
 
 // /. imports
 
-export function useInput(initialValue: string, validations: any): any {
+interface returnTypes extends Ierror {
+    value: string;
+    isInputActive: boolean;
+    onInputChange: (
+        arg1: React.ChangeEvent<HTMLInputElement>,
+        arg2?: string
+    ) => void;
+    onInputBlur: () => void;
+}
+
+export interface Ivalidation {
+    isEmpty?: boolean;
+    minLength?: number;
+    isCyrillicAllowed?: boolean;
+    isEmailPatternValidation?: boolean;
+}
+
+// /. interfaces
+
+export function useInput(
+    initialValue: string,
+    validations: Ivalidation
+): returnTypes {
     const [value, setValue] = useState<string>(initialValue);
     const [isInputActive, setInputActiveStatus] = useState<boolean>(false);
 
-    const validationObj = useValiadtion({ value, validations });
+    const errorsObj = useValiadtion(value, validations);
 
     // /. hooks
 
-    const onInputChange = (e: any, role?: string): void => {
+    const onInputChange = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        role?: string
+    ): void => {
         switch (role) {
             case 'location':
                 setValue(e.target.value.replace(/[^a-zA-Zа-яА-Я\s]/g, ''));
@@ -39,6 +64,6 @@ export function useInput(initialValue: string, validations: any): any {
         isInputActive,
         onInputChange,
         onInputBlur,
-        ...validationObj
+        ...errorsObj
     };
 }

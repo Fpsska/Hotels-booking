@@ -1,4 +1,4 @@
-export function getCurrentDate(date: any, type?: string): string {
+export function getCurrentDate(date: Date | string, type?: string): string {
     const options: { [key: string]: string } = {
         year: 'numeric',
         month: type === 'combined' ? 'long' : 'numeric',
