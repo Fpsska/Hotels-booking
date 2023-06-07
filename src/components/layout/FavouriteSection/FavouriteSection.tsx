@@ -32,22 +32,24 @@ const FavouriteSection: React.FC = () => {
                 {favouriteHotelsData.length === 0 ? (
                     <h3 className="data-message">Favourite data is empty</h3>
                 ) : (
-                    <ul className="hotels-list hotels-list_favourite">
-                        {favouriteHotelsData?.map((hotel: Ihotel) => {
-                            return (
-                                <HotelTemplate
-                                    key={hotel.hotelId}
-                                    id={hotel.hotelId}
-                                    name={hotel.hotelName}
-                                    locationName={hotel.location.name}
-                                    rating={hotel.stars}
-                                    price={hotel.priceAvg}
-                                    {...hotel}
-                                    additionalClass="hotels-list__template_favourite"
-                                />
-                            );
-                        })}
-                    </ul>
+                    <div className="hotel-page__favourite-list">
+                        <ul className="hotels-list hotels-list_favourite">
+                            {favouriteHotelsData?.map((hotel: Ihotel) => {
+                                return (
+                                    <HotelTemplate
+                                        key={hotel.hotelId}
+                                        id={hotel.hotelId}
+                                        name={hotel.hotelName}
+                                        locationName={hotel.location.name}
+                                        rating={hotel.stars}
+                                        price={hotel.priceAvg}
+                                        {...hotel}
+                                        additionalClass="hotels-list__template_favourite"
+                                    />
+                                );
+                            })}
+                        </ul>
+                    </div>
                 )}
             </>
         </div>

@@ -99,12 +99,12 @@ const MainSection: React.FC = () => {
                         {getCorrectLocationName(currentLocation)}
                     </li>
                 </ul>
-                <span className="hotel-page__date">
+                <span className="hotel-page__main-date">
                     {getCurrentDate(arrivalDate, 'combined')}
                 </span>
             </div>
 
-            <div className="hotel-page__slider">
+            <div className="hotel-page__main-slider">
                 <Swiper breakpoints={breakpoints}>
                     {hotelSliderImages.map((image: IhotelSliderImage) => {
                         return (
@@ -119,7 +119,7 @@ const MainSection: React.FC = () => {
                 </Swiper>
             </div>
 
-            <p className="hotel-page__info">
+            <p className="hotel-page__main-info">
                 Добавлено в Избранное: <span>{favouriteHotelsData.length}</span>{' '}
                 {hotelsTextValue}
             </p>
@@ -134,21 +134,23 @@ const MainSection: React.FC = () => {
                 ) : hotelsData.length === 0 ? (
                     <h3 className="data-message">No matches...</h3>
                 ) : (
-                    <ul className="hotels-list hotels-list_main">
-                        {hotelsData?.map((hotel: Ihotel) => {
-                            return (
-                                <HotelTemplate
-                                    key={hotel.hotelId}
-                                    id={hotel.hotelId}
-                                    name={hotel.hotelName}
-                                    locationName={hotel.location.name}
-                                    price={hotel.priceAvg}
-                                    rating={hotel.stars}
-                                    {...hotel}
-                                />
-                            );
-                        })}
-                    </ul>
+                    <div className="hotel-page__main-list">
+                        <ul className="hotels-list hotels-list_main">
+                            {hotelsData?.map((hotel: Ihotel) => {
+                                return (
+                                    <HotelTemplate
+                                        key={hotel.hotelId}
+                                        id={hotel.hotelId}
+                                        name={hotel.hotelName}
+                                        locationName={hotel.location.name}
+                                        price={hotel.priceAvg}
+                                        rating={hotel.stars}
+                                        {...hotel}
+                                    />
+                                );
+                            })}
+                        </ul>
+                    </div>
                 )}
             </>
         </div>

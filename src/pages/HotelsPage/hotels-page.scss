@@ -12,8 +12,22 @@
         margin-bottom: 32px;
     }
 
-    &__slider {
+    &__main-slider {
         margin-bottom: 32px;
+
+        .swiper-slide {
+            background-color: #C4C4C4;
+            box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 149px;
+        }
     }
 
     &__content {
@@ -78,13 +92,13 @@
         margin-bottom: 22px;
     }
 
-    &__date {
+    &__main-date {
         font-size: 24px;
         font-weight: 400;
         color: $woodland-color;
     }
 
-    &__info {
+    &__main-info {
         font-size: 17px;
         font-weight: 300;
         color: $tundora-color;
@@ -94,6 +108,16 @@
             font-weight: 500;
             color: $woodland-color;
         }
+    }
+
+    &__main-list {
+        flex: 1 1 auto;
+        position: relative;
+    }
+
+    &__favourite-list {
+        flex: 1 1 auto;
+        position: relative;
     }
 }
 
@@ -224,8 +248,12 @@
 }
 
 .hotels-list_main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     overflow-y: scroll;
-    max-height: 520px;
     padding-right: 12px;
 
     /* Firefox */
@@ -251,8 +279,12 @@
 }
 
 .hotels-list_favourite {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     overflow-y: scroll;
-    max-height: 290px;
 
     /* Firefox */
     * {
@@ -273,21 +305,5 @@
         background-color: transparent;
         border-radius: none;
         border: none;
-    }
-}
-
-.hotel-page__slider {
-    .swiper-slide {
-        background-color: #C4C4C4;
-        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.15);
-        border-radius: 10px;
-        overflow: hidden;
-        cursor: pointer;
-    }
-
-    img {
-        object-fit: cover;
-        width: 100%;
-        height: 149px;
     }
 }

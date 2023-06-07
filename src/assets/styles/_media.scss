@@ -9,6 +9,10 @@
     .hotel-page__main {
         padding: 52px 24px;
     }
+
+    .hotel-page__main-list {
+        min-height: 520px;
+    }
 }
 
 @media screen and (max-width: 675px) {
@@ -36,8 +40,8 @@
         padding: 52px 10px;
     }
 
-    .hotel-page__slider,
-    .hotel-page__info {
+    .hotel-page__main-slider,
+    .hotel-page__main-info {
         padding: 0 10px;
     }
 
@@ -45,7 +49,7 @@
         width: 100%;
     }
 
-    .hotel-page__info {
+    .hotel-page__main-info {
         text-align: center;
     }
 
@@ -69,7 +73,7 @@
         flex-direction: column;
     }
 
-    .hotel-page__slider img {
+    .hotel-page__main-slider img {
         height: 180px;
     }
 
