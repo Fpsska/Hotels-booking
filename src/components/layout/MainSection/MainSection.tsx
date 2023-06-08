@@ -134,8 +134,8 @@ const MainSection: React.FC = () => {
                 ) : hotelsData.length === 0 ? (
                     <h3 className="data-message">No matches...</h3>
                 ) : (
-                    <div className="hotel-page__main-list">
-                        <ul className="hotels-list hotels-list_main">
+                    <div className="hotel-page__preview">
+                        <ul className="hotel-page__list hotels-list">
                             {hotelsData?.map((hotel: Ihotel) => {
                                 return (
                                     <HotelTemplate

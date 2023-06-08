@@ -1,10 +1,12 @@
 @import 'assets/styles/vars';
+@import 'assets/styles/mixins';
 
 // /. imports
 
 .find-form {
-    background-color: $white-color;
-    border-radius: 16px;
+    @include rounded-section;
+    padding: 32px;
+    width: 100%;
 
     &__label {
 
@@ -39,4 +41,9 @@
         padding: 15px;
     }
 
+}
+
+.find-form_hotels {
+    grid-area: filter;
+    min-height: 410px;
 }

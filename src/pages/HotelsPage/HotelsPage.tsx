@@ -66,11 +66,9 @@ const HotelsPage: React.FC = () => {
                 <section className="hotel-page__content">
                     <MainSection />
 
-                    <div className="hotel-page__filter">
-                        <FindForm />
-                    </div>
+                    <FindForm additionalClass="find-form_hotels" />
 
-                    <FavouriteSection />
+                    <FavouriteSection additionalClass="favourite-section_hotels" />
                 </section>
             </div>
         </div>

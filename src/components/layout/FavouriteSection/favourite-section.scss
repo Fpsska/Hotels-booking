@@ -1,0 +1,54 @@
+@import 'assets/styles/vars';
+@import 'assets/styles/mixins';
+
+// /. imports
+
+.favourite-section {
+    padding: 32px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    @include rounded-section;
+
+    &__title {
+        margin-bottom: 32px;
+    }
+
+    &__sort-controls {
+        margin-bottom: 22px;
+    }
+
+    &__preview {
+        @include list-wrapper;
+    }
+
+    &__list {
+        @include adaptive-list;
+
+        /* Firefox */
+        * {
+            scrollbar-width: 0;
+            scrollbar-color: transparent;
+        }
+
+        /* Chrome, Edge, and Safari */
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: transparent;
+            border-radius: none;
+            border: none;
+        }
+    }
+}
+
+.favourite-section_hotels {
+    grid-area: favourite;
+    min-height: 472px;
+}

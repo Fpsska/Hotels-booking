@@ -16,7 +16,9 @@ import './find-form.scss';
 
 // /. imports
 
-const FindForm: React.FC = () => {
+const FindForm: React.FC<{ additionalClass?: string }> = ({
+    additionalClass
+}) => {
     const { isUserAuthorized } = useAppSelector(state => state.authSlice);
     const { currentLocation, arrivalDate, daysCount, isHotelsDataLoading } =
         useAppSelector(state => state.hotelSlice);
@@ -56,7 +58,7 @@ const FindForm: React.FC = () => {
 
     return (
         <form
-            className="find-form"
+            className={`find-form ${additionalClass ? additionalClass : ''}`}
             action="#"
             onSubmit={e => onFindFormSubmit(e)}
         >
