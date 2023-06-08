@@ -45,10 +45,18 @@
             border-radius: none;
             border: none;
         }
+
+        .hotels-list__template {
+            padding: 16px 0;
+        }
+
+        .hotels-list__image {
+            display: none;
+        }
     }
 }
 
 .favourite-section_hotels {
     grid-area: favourite;
-    min-height: 472px;
+    min-height: 440px;
 }

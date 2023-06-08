@@ -11,7 +11,7 @@ import { declensionByQuantity } from 'utils/helpers/declensionByQuantity';
 
 import hotelImg from 'assets/icons/house-icon.svg';
 
-import StarRating from '../StarRating/StarRating';
+import StarRating from '../../ui/StarRating/StarRating';
 
 // /. imports
 
@@ -24,7 +24,6 @@ interface propTypes {
     price: number;
     rating: number;
     isFavourite: boolean;
-    additionalClass?: string;
 }
 
 // /. interfaces
@@ -38,8 +37,7 @@ const HotelTemplate: React.FC<propTypes> = props => {
         duration,
         price,
         rating,
-        isFavourite,
-        additionalClass
+        isFavourite
     } = props;
 
     const [daysTextValue, setDaysTextValue] = useState<string>('');
@@ -83,11 +81,7 @@ const HotelTemplate: React.FC<propTypes> = props => {
     // /. effects
 
     return (
-        <li
-            className={`hotels-list__template ${
-                additionalClass ? additionalClass : ''
-            }`}
-        >
+        <li className="hotels-list__template">
             <div className="hotels-list__image">
                 <img
                     src={hotelImg}

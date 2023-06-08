@@ -8,9 +8,9 @@ import { getCurrentDate } from 'utils/helpers/getCurrentDate';
 import { declensionByQuantity } from 'utils/helpers/declensionByQuantity';
 import { getCorrectLocationName } from 'utils/helpers/getCorrectLocationName';
 
-import HotelTemplate from 'components/ui/HotelTemplate/HotelTemplate';
-
 import { Ihotel, IhotelSliderImage } from 'types/generalTypes';
+
+import HotelsList from '../HotelsList/HotelsList';
 
 // /. imports
 
@@ -135,21 +135,10 @@ const MainSection: React.FC = () => {
                     <h3 className="data-message">No matches...</h3>
                 ) : (
                     <div className="hotel-page__preview">
-                        <ul className="hotel-page__list hotels-list">
-                            {hotelsData?.map((hotel: Ihotel) => {
-                                return (
-                                    <HotelTemplate
-                                        key={hotel.hotelId}
-                                        id={hotel.hotelId}
-                                        name={hotel.hotelName}
-                                        locationName={hotel.location.name}
-                                        price={hotel.priceAvg}
-                                        rating={hotel.stars}
-                                        {...hotel}
-                                    />
-                                );
-                            })}
-                        </ul>
+                        <HotelsList
+                            data={hotelsData}
+                            additionalClass="hotel-page__list"
+                        />
                     </div>
                 )}
             </>

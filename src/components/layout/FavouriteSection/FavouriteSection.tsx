@@ -3,9 +3,8 @@ import React from 'react';
 import { useAppSelector } from 'app/hooks';
 
 import SortControls from 'components/ui/SortControls/SortControls';
-import HotelTemplate from 'components/ui/HotelTemplate/HotelTemplate';
 
-import { Ihotel } from 'types/generalTypes';
+import HotelsList from '../HotelsList/HotelsList';
 
 import './favourite-section.scss';
 
@@ -39,22 +38,10 @@ const FavouriteSection: React.FC<{ additionalClass?: string }> = ({
                     <h3 className="data-message">Favourite data is empty</h3>
                 ) : (
                     <div className="favourite-section__preview">
-                        <ul className="favourite-section__list hotels-list">
-                            {favouriteHotelsData?.map((hotel: Ihotel) => {
-                                return (
-                                    <HotelTemplate
-                                        key={hotel.hotelId}
-                                        id={hotel.hotelId}
-                                        name={hotel.hotelName}
-                                        locationName={hotel.location.name}
-                                        rating={hotel.stars}
-                                        price={hotel.priceAvg}
-                                        {...hotel}
-                                        additionalClass="hotels-list__template_favourite"
-                                    />
-                                );
-                            })}
-                        </ul>
+                        <HotelsList
+                            data={favouriteHotelsData}
+                            additionalClass="favourite-section__list"
+                        />
                     </div>
                 )}
             </>
